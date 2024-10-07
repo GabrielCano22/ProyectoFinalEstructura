@@ -1,4 +1,6 @@
 import javax.swing.JOptionPane;
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args){
     int opcion =0;
@@ -11,6 +13,7 @@ public class Main {
                 + "5. Inventario total \n"
                 + "6. Salir \n";
         String input = JOptionPane.showInputDialog(null,menu, "MENU",JOptionPane.QUESTION_MESSAGE);
+        String menuE = "1. Registrar Portaril \n"+"2. Registrar Tablet \n"+"3. Regresar";
 
         if (input == null) {
             break;
@@ -19,7 +22,18 @@ public class Main {
             opcion = Integer.parseInt(input);
             switch (opcion){
                 case 1:
-                    JOptionPane.showMessageDialog(null, "Registrar Equipo");
+                    JOptionPane.showMessageDialog(null, "Menú de registro de equipos");
+                    String TipoEquipo = JOptionPane.showInputDialog(null,menuE, "Que Equipo deseas ingresar?",JOptionPane.QUESTION_MESSAGE);
+                    int opcionE = Integer.parseInt(TipoEquipo);
+                    if (opcionE ==1){
+                        JOptionPane.showMessageDialog(null,"Bienvenido al apartado de registro de portatiles");
+                    }else if (opcionE ==2){
+                        JOptionPane.showMessageDialog(null,"Bienvenido al apartado de registro de tablets");
+                        Metodos m = new Metodos();
+                        LinkedList<TABLETA_GRAFICA> ListaT = new LinkedList<>();
+                        ListaT = m.LlenarTablets();
+                        m.MostrarTablets(ListaT);
+                    }
                     break;
                 case 2:
                     JOptionPane.showMessageDialog(null, "Eliminar Equipo");
