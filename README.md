@@ -5,7 +5,7 @@
 
 ##  Éste es nuestro hermoso pryecto; fue hecho con sudor y largimas (sin IA).
 
-<img src="https://www.codeitbro.in/java-memes/java-the-real-source-of-despair/" width="500" height="400" align="center" alt="MEME PRESENTACIÓN"/>
+<img src="https://www.codeitbro.in/wp-content/uploads/2024/09/Java-The-Real-Source-of-Despair-java-developer-memes.webp" width="500" height="400" align="center" alt="MEME PRESENTACIÓN"/>
 
 ## Historia de usuario
 ### 1.  Enunciado
