@@ -1,16 +1,14 @@
 public class Estudiante_diseño {
     String Nombre;
     String Apellido;
-    String Telefono;
-    String Cedula;
-    String Serial;
+    int Telefono;
+    int Cedula;
     double Promedio;
     int NumSeme;
-    public Estudiante_diseño(String nombre, int numSeme, double promedio, String serial, String cedula, String telefono, String apellido) {
+    public Estudiante_diseño(String nombre, int numSeme, double promedio, int cedula, int telefono, String apellido) {
         Nombre = nombre;
         NumSeme = numSeme;
         Promedio = promedio;
-        Serial = serial;
         Cedula = cedula;
         Telefono = telefono;
         Apellido = apellido;
@@ -40,27 +38,19 @@ public class Estudiante_diseño {
         Promedio = promedio;
     }
 
-    public String getSerial() {
-        return Serial;
-    }
-
-    public void setSerial(String serial) {
-        Serial = serial;
-    }
-
-    public String getCedula() {
+    public int getCedula() {
         return Cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(int cedula) {
         Cedula = cedula;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return Telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         Telefono = telefono;
     }
 

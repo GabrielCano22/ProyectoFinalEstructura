@@ -8,7 +8,6 @@ public class objDiseño {
         String Apellido;
         int Telefono;
         int Cedula;
-        String Serial;
         double Promedio;
         int NumSeme;
         int opt = 0;
@@ -21,7 +20,7 @@ public class objDiseño {
             Promedio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su promedio: "));
             NumSeme = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su numero de semestre: "));
 
-            Object es = new Estudiante_diseño(NumSeme, Promedio, Cedula, Telefono, Apellido,Nombre );
+            Object es = new Estudiante_diseño(Nombre, NumSeme, Cedula, Telefono, NumSeme,Apellido );
             ListaDiseño.add((Estudiante_diseño) es);
             opt = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Desea agregar más estudiantes? 1:SI \n 2: NO" , JOptionPane.QUESTION_MESSAGE));
             if (opt == 2) {

@@ -10,7 +10,6 @@ public class objInge {
         String Apellido;
         int Telefono;
         int Cedula;
-        String Serial;
         double Promedio;
         int NumSeme;
         int opt=0;
@@ -23,7 +22,7 @@ public class objInge {
             Promedio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su promedio: "));
             NumSeme= Integer.parseInt(JOptionPane.showInputDialog("Ingrese su numero de semestre: "));
 
-            Object e= new Estudiante_ingenieria(Nombre, NumSeme, Promedio, Cedula, Telefono , Apellido);
+            Object e= new Estudiante_ingenieria(Nombre, Apellido, Telefono, Cedula, Promedio , NumSeme);
             ListaInge.add((Estudiante_ingenieria) e);
             opt=Integer.parseInt(JOptionPane.showInputDialog(null, "¿Desea agregar más estudiantes? 1:SI \n" +"2: NO",JOptionPane.QUESTION_MESSAGE));
             if (opt==2){
