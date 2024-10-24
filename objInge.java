@@ -2,7 +2,6 @@ import javax.swing.JOptionPane;
 import java.util.LinkedList;
 public class objInge {
 
-
     public LinkedList<Estudiante_ingenieria> llenarEstu(){
     boolean continuar=true;
     LinkedList<Estudiante_ingenieria> ListaInge= new LinkedList<>();

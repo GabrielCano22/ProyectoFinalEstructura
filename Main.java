@@ -13,7 +13,7 @@ public class Main {
                 + "5. Inventario total \n"
                 + "6. Salir \n";
         String input = JOptionPane.showInputDialog(null,menu, "MENU",JOptionPane.QUESTION_MESSAGE);
-        String menuE = "1. Registrar Portaril \n"+"2. Registrar Tablet \n"+"3. Regresar";
+        String menuE = "1. Registrar Portatil \n"+"2. Registrar Tablet \n"+"3. Regresar";
 
         if (input == null) {
             break;
@@ -25,8 +25,23 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Menú de registro de equipos");
                     String TipoEquipo = JOptionPane.showInputDialog(null,menuE, "Que Equipo deseas ingresar?",JOptionPane.QUESTION_MESSAGE);
                     int opcionE = Integer.parseInt(TipoEquipo);
+
                     if (opcionE ==1){
                         JOptionPane.showMessageDialog(null,"Bienvenido al apartado de registro de portatiles");
+                        Metodos c = new Metodos();
+                        LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();
+                        ListaC = c.LlenarComputador();
+                      /*  String ListaComputadores = JOptionPane.showInputDialog(null,menuE, "Deseas conocer la lista de equipos?",JOptionPane.QUESTION_MESSAGE);
+                        int ImportarC =Integer.parseInt(ListaComputadores);
+                        switch (ImportarC){
+                            case 1:
+                                ListaC= c.ImportarC();
+                                break;
+                            case 2:
+                                c.ExportarComputadores(ListaC);
+                                break;
+                        }*/
+                        c.MostrarComputadores(ListaC);
                     }else if (opcionE ==2){
                         JOptionPane.showMessageDialog(null,"Bienvenido al apartado de registro de tablets");
                         Metodos m = new Metodos();
@@ -56,7 +71,7 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Inventario total ");
                     break;
                 case 6:
-                    JOptionPane.showMessageDialog(null, "Salir");
+                    JOptionPane.showMessageDialog(null, "Saliendo...");
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Opcion invalida","ERROR",JOptionPane.ERROR_MESSAGE);
