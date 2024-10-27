@@ -31,7 +31,7 @@ public class Main {
                             Metodos c = new Metodos();
                             LinkedList<COMPUTADOR_PORTATIL> ListaC = c.LlenarComputador();
                             c.MostrarComputadores(ListaC);
-                            String ListaComputadores = JOptionPane.showInputDialog(null, "1. Importar Computadores\n2. Exportar Computadores", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
+                            String ListaComputadores = JOptionPane.showInputDialog(null, "1. Importar Computadores\n2. Exportar Computadores\n 3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
                             int ImportarC = Integer.parseInt(ListaComputadores);
                             switch (ImportarC) {
                                 case 1:
@@ -49,6 +49,19 @@ public class Main {
                             Metodos m = new Metodos();
                             LinkedList<TABLETA_GRAFICA> ListaT = m.LlenarTablets();
                             m.MostrarTablets(ListaT);
+                            String ListaTablets = JOptionPane.showInputDialog(null, "1. Importar Tablets\n2. Exportar Tablets\n3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
+                            int ImportarT = Integer.parseInt(ListaTablets);
+                            switch (ImportarT) {
+                                case 1:
+                                    ImportarTablets importar = new ImportarTablets();
+                                    ListaT = importar.ImportarArchivo();
+                                    m.MostrarTablets(ListaT);
+                                    break;
+                                case 2:
+                                    ExportarTablets exportar = new ExportarTablets();
+                                    exportar.exportarArchivo(ListaT);
+                                    break;
+                            }
                         }
                         break;
                     case 2:

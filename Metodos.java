@@ -135,4 +135,13 @@ public class Metodos {
         LinkedList<COMPUTADOR_PORTATIL> listaC = importarC.ImportarArchivo();
         return listaC;
     }
+    public void ExportarTablets(LinkedList<TABLETA_GRAFICA> listaT) {
+        ExportarTablets exportarT = new ExportarTablets();
+        exportarT.exportarArchivo(listaT);
+    }
+    public LinkedList<TABLETA_GRAFICA> ImportarT() {
+        ImportarTablets importarT = new ImportarTablets();
+        LinkedList<TABLETA_GRAFICA> listaT = importarT.ImportarArchivo();
+        return listaT;
+    }
 }

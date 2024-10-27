@@ -16,6 +16,11 @@ public class TABLETA_GRAFICA {
         Peso = peso;
         TipoA = tipoA;
     }
+
+    public TABLETA_GRAFICA() {
+
+    }
+
     public String getTipoA() {
         return TipoA;
     }
@@ -47,13 +52,6 @@ public class TABLETA_GRAFICA {
         Tamaño = tamaño;
     }
 
-    public Double getPrecio() {
-        return Precio;
-    }
-
-    public void setPrecio(Double precio) {
-        Precio = precio;
-    }
     public Double getPeso() {
         return Peso;
     }
@@ -61,4 +59,14 @@ public class TABLETA_GRAFICA {
     public void setPeso(Double peso) {
         Peso = peso;
     }
-}
+
+    public Double getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(Double precio) {
+        Precio = precio;
+    }
+
+    }
+

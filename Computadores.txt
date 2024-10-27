@@ -1,14 +1,14 @@
 Serial: 1
-Marca: 1
-Tamaño: 1.0
-Precio: 1.0
-Sistema Operativo: Windows 7
-Tipo de Procesador: Intel®Core™i5
-------------------------------------------------------
-Serial: 2
 Marca: 2
-Tamaño: 2.0
-Precio: 2.0
+Tamaño: 3.0
+Precio: 3.0
+Sistema Operativo: Windows 11
+Tipo de Procesador: AMD Ryzen
+------------------------------------------------------
+Serial: 4
+Marca: 4
+Tamaño: 4.0
+Precio: 4.0
 Sistema Operativo: Windows 10
 Tipo de Procesador: AMD Ryzen
 ------------------------------------------------------
