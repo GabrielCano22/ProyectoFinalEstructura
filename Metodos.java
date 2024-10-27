@@ -2,8 +2,10 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 public class Metodos {
-    public void mostrarMenuIngenieria(){
-    int opcion =0;
+    public void mostrarMenuIngenieria() {
+        int opcion = 0;
+        LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();  // Lista compartida
+
         while (opcion != 5) {
             String menu = "MENU ESTUDIANTES INGENIERIA: \n"
                     + "1. Registrar Préstamo de Equipo \n"
@@ -17,47 +19,55 @@ public class Metodos {
             }
             try {
                 opcion = Integer.parseInt(input);
-                switch (opcion){
+                switch (opcion) {
                     case 1:
-                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de registro de portatiles");
-                        Metodos c = new Metodos();
-                        LinkedList<COMPUTADOR_PORTATIL> ListaC = c.LlenarComputador();
-                        c.MostrarComputadores(ListaC);
-                        String ListaComputadores = JOptionPane.showInputDialog(null, "1. Importar Computadores\n2. Exportar Computadores\n 3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
-                        int ImportarC = Integer.parseInt(ListaComputadores);
-                        switch (ImportarC) {
-                            case 1:
-                                ImportarComputador importar = new ImportarComputador();
-                                ListaC = importar.ImportarArchivo();
-                                c.MostrarComputadores(ListaC);
-                                break;
-                            case 2:
-                                ExportarComputadores exportar = new ExportarComputadores();
-                                exportar.exportarArchivo(ListaC);
-                                break;
+                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de registro de portátiles");
+                        ListaC.addAll(LlenarComputador());
+                        MostrarComputadores(ListaC);
+                        String listaComputadores = JOptionPane.showInputDialog(null, "1. Importar Computadores\n2. Exportar Computadores\n3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
+                        try {
+                            int importarC = Integer.parseInt(listaComputadores);
+                            switch (importarC) {
+                                case 1:
+                                    ListaC.addAll(ImportarC());
+                                    JOptionPane.showMessageDialog(null, "Importación completada. Lista actualizada:");
+                                    MostrarComputadores(ListaC);
+                                    break;
+                                case 2:
+                                    ExportarComputadores(ListaC);
+                                    JOptionPane.showMessageDialog(null, "Exportación completa.");
+                                    break;
+                                default:
+                                    JOptionPane.showMessageDialog(null, "Opción inválida");
+                                    break;
+                            }
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Opción inválida, por favor ingrese un número");
                         }
                         break;
                     case 2:
-                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de modificación de portatiles");
-                        /*PONER LO DE DENNIS DE MODIFICAR*/
+                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de modificación de portátiles");
+                        modificarComputador(ListaC);
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de devolución de portatiles");
-                        /*PONER LO DE DENNIS DE DEVOLUCION*/
+                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de devolución de portátiles");
+                        // Código para devolución de equipo
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de busqueda de portatiles");
-                        /*PONER LO DE DENNIS DE BUSQUEDA*/
+                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de búsqueda de portátiles");
+                        BuscarComputador buscarCom = new BuscarComputador();
+                        buscarCom.BuscarC(ListaC);  // Usamos la misma ListaC para buscar
                         break;
                     case 5:
                         JOptionPane.showMessageDialog(null, "Volviendo al menú principal");
                         break;
                 }
-                }catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Opcion invalida", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Opción inválida", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
+
     public void mostrarMenuDiseño(){
         int opcionD =0;
         while (opcionD !=5){
@@ -102,7 +112,7 @@ public class Metodos {
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null,"Bienvenido al apartado de busqueda de Tablets");
-                        /*PONER LO DE DENNIS DE BUSQUEDA*/
+
                         break;
                     case 5:
                         JOptionPane.showMessageDialog(null,"Volviendo al menú principal");
@@ -234,6 +244,81 @@ public class Metodos {
             System.out.println("Sistema Operativo: " + itemC.getSistemaOperativo());
             System.out.println("Tipo de Procesador: " + itemC.getTipoProcesador());
             System.out.println("------------------------------------");
+        }
+    }
+    public class BuscarComputador{
+        public COMPUTADOR_PORTATIL BuscarC(LinkedList<COMPUTADOR_PORTATIL> listaC){
+            String serialBuscarC = JOptionPane.showInputDialog("Ingrese el serial del computador que desea buscar: ");
+            COMPUTADOR_PORTATIL resultadoBusquedaC = null;
+            for (COMPUTADOR_PORTATIL ItemBusquedaC : listaC){
+                if (ItemBusquedaC.getSerial().equals(serialBuscarC)){
+                    resultadoBusquedaC = ItemBusquedaC;
+                    break;
+                }
+            }if (resultadoBusquedaC != null){
+                JOptionPane.showMessageDialog(null,"Computador encontrado:\n"+
+                        "Serial: "+resultadoBusquedaC.getSerial()+"\n"+
+                        "Marca: "+resultadoBusquedaC.getMarca()+"\n"+
+                        "Tamaño: "+resultadoBusquedaC.getTamaño()+"\n"+
+                        "Precio: "+resultadoBusquedaC.getPrecio()+"\n"+
+                        "Sistema Operativo: "+resultadoBusquedaC.getSistemaOperativo()+"\n"+
+                        "Tipo de Procesador: "+resultadoBusquedaC.getTipoProcesador()+"\n");
+            }else{
+                JOptionPane.showMessageDialog(null,"Computador no encontrado");
+            }
+            return resultadoBusquedaC;
+        }
+    }
+    public void modificarComputador(LinkedList<COMPUTADOR_PORTATIL> listaC) {
+        String serialModificar = JOptionPane.showInputDialog("Ingrese el serial del computador que desea modificar: ");
+        COMPUTADOR_PORTATIL computadorModificar = null;
+        for (COMPUTADOR_PORTATIL item : listaC) {
+            if (item.getSerial().equals(serialModificar)) {
+                computadorModificar = item;
+                break;
+            }
+        }
+        if (computadorModificar != null) {
+            String nuevaMarca = JOptionPane.showInputDialog("Ingrese la nueva marca del computador:", computadorModificar.getMarca());
+            Double nuevoTamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el nuevo tamaño del computador en PULGADAS:", computadorModificar.getTamaño()));
+            Double nuevoPrecio = Double.valueOf(JOptionPane.showInputDialog("Ingrese el nuevo precio del computador:", computadorModificar.getPrecio()));
+
+            int operativoOpt = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo sistema operativo:\n1. Windows 7\n2. Windows 10\n3. Windows 11"));
+            String nuevoSistemaOperativo;
+            switch (operativoOpt) {
+                case 1:
+                    nuevoSistemaOperativo = "Windows 7";
+                    break;
+                case 2:
+                    nuevoSistemaOperativo = "Windows 10";
+                    break;
+                case 3:
+                    nuevoSistemaOperativo = "Windows 11";
+                    break;
+                default:
+                    nuevoSistemaOperativo = computadorModificar.getSistemaOperativo();
+            }
+            int procesadorOpt = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo tipo de procesador:\n1. Intel®Core™i5\n2. AMD Ryzen"));
+            String nuevoProcesador;
+            switch (procesadorOpt) {
+                case 1:
+                    nuevoProcesador = "Intel®Core™i5";
+                    break;
+                case 2:
+                    nuevoProcesador = "AMD Ryzen";
+                    break;
+                default:
+                    nuevoProcesador = computadorModificar.getTipoProcesador();
+            }
+            computadorModificar.setMarca(nuevaMarca);
+            computadorModificar.setTamaño(nuevoTamaño);
+            computadorModificar.setPrecio(nuevoPrecio);
+            computadorModificar.setSistemaOperativo(nuevoSistemaOperativo);
+            computadorModificar.setTipoProcesador(nuevoProcesador);
+
+            JOptionPane.showMessageDialog(null, "El computador ha sido modificado exitosamente.");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró un computador con el serial proporcionado.");
         }
     }
 
