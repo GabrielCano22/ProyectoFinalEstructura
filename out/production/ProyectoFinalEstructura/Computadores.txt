@@ -1,0 +1,7 @@
+Serial: 1
+Marca: 
+Tamaño: 1.0
+Precio: 1.0
+Sistema Operativo: 1
+Tipo de Procesador: 1
+------------------------------------------------------
