@@ -2,6 +2,118 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 public class Metodos {
+    public void mostrarMenuIngenieria(){
+    int opcion =0;
+        while (opcion != 5) {
+            String menu = "MENU ESTUDIANTES INGENIERIA: \n"
+                    + "1. Registrar Préstamo de Equipo \n"
+                    + "2. Modificar Préstamo de Equipo \n"
+                    + "3. Devolución de Equipo \n"
+                    + "4. Buscar Equipo \n"
+                    + "5. Volver al menú principal \n";
+            String input = JOptionPane.showInputDialog(null, menu, "MENU", JOptionPane.QUESTION_MESSAGE);
+            if (input == null) {
+                break;
+            }
+            try {
+                opcion = Integer.parseInt(input);
+                switch (opcion){
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de registro de portatiles");
+                        Metodos c = new Metodos();
+                        LinkedList<COMPUTADOR_PORTATIL> ListaC = c.LlenarComputador();
+                        c.MostrarComputadores(ListaC);
+                        String ListaComputadores = JOptionPane.showInputDialog(null, "1. Importar Computadores\n2. Exportar Computadores\n 3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
+                        int ImportarC = Integer.parseInt(ListaComputadores);
+                        switch (ImportarC) {
+                            case 1:
+                                ImportarComputador importar = new ImportarComputador();
+                                ListaC = importar.ImportarArchivo();
+                                c.MostrarComputadores(ListaC);
+                                break;
+                            case 2:
+                                ExportarComputadores exportar = new ExportarComputadores();
+                                exportar.exportarArchivo(ListaC);
+                                break;
+                        }
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de modificación de portatiles");
+                        /*PONER LO DE DENNIS DE MODIFICAR*/
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de devolución de portatiles");
+                        /*PONER LO DE DENNIS DE DEVOLUCION*/
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(null, "Bienvenido al apartado de busqueda de portatiles");
+                        /*PONER LO DE DENNIS DE BUSQUEDA*/
+                        break;
+                    case 5:
+                        JOptionPane.showMessageDialog(null, "Volviendo al menú principal");
+                        break;
+                }
+                }catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Opcion invalida", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    public void mostrarMenuDiseño(){
+        int opcionD =0;
+        while (opcionD !=5){
+            String menu = "MENU ESTUDIANTES DISEÑO: \n"
+                    + "1. Registrar Préstamo de Tablet \n"
+                    + "2. Modificar Préstamo de Tablet \n"
+                    + "3. Devolución de Tablet \n"
+                    + "4. Buscar Tablet \n"
+                    + "5. Volver al menú principal \n";
+            String input = JOptionPane.showInputDialog(null, menu, "MENU", JOptionPane.QUESTION_MESSAGE);
+            if (input== null){
+                break;
+            }
+            try{
+                opcionD = Integer.parseInt(input);
+                switch (opcionD){
+                    case 1:
+                        JOptionPane.showMessageDialog(null,"Bienvenido al apartado de registro de Tablets");
+                        Metodos m = new Metodos();
+                        LinkedList<TABLETA_GRAFICA> ListaT = m.LlenarTablets();
+                        m.MostrarTablets(ListaT);
+                        String ListaTablets = JOptionPane.showInputDialog(null, "1. Importar Tablets\n2. Exportar Tablets\n3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
+                        int ImportarT = Integer.parseInt(ListaTablets);
+                        switch (ImportarT) {
+                            case 1:
+                                ImportarTablets importar = new ImportarTablets();
+                                ListaT = importar.ImportarArchivo();
+                                m.MostrarTablets(ListaT);
+                                break;
+                            case 2:
+                                ExportarTablets exportar = new ExportarTablets();
+                                exportar.exportarArchivo(ListaT);
+                                break;
+                        }break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null,"Bienvenido al apartado de modificación de Tablets");
+                        /*PONER LO DE DENNIS DE MODIFICAR*/
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(null,"Bienvenido al apartado de devolución de Tablets");
+                        /*PONER LO DE DENNIS DE DEVOLUCION*/
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(null,"Bienvenido al apartado de busqueda de Tablets");
+                        /*PONER LO DE DENNIS DE BUSQUEDA*/
+                        break;
+                    case 5:
+                        JOptionPane.showMessageDialog(null,"Volviendo al menú principal");
+                        break;
+                }
+
+            }catch (NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"Opcion invalida","ERROR",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
     public LinkedList<COMPUTADOR_PORTATIL> LlenarComputador() {
         boolean continuar = true;
         LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();

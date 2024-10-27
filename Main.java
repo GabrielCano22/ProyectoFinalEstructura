@@ -4,14 +4,12 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) {
         int opcion = 0;
-        while (opcion != 6) {
-            String menu = "Menu de opciones: \n"
-                    + "1. Registrar Equipo \n"
-                    + "2. Eliminar Equipo \n"
-                    + "3. Registrar prestamo ingenieria \n"
-                    + "4. Registrar prestamo diseño \n"
-                    + "5. Inventario total \n"
-                    + "6. Salir \n";
+        while (opcion != 4) {
+            String menu = "MENU PRINCIPAL: \n"
+                    + "1. ESTUDIANTES DE INGENIERIA \n"
+                    + "2. ESTUDIANTES DE DISEÑO \n"
+                    + "3. IMPRIMIR INVENTARIO TOTAL \n"
+                    + "4. SALIR \n";
             String input = JOptionPane.showInputDialog(null, menu, "MENU", JOptionPane.QUESTION_MESSAGE);
             String menuE = "1. Registrar Portatil \n" + "2. Registrar Tablet \n" + "3. Regresar";
 
@@ -27,41 +25,11 @@ public class Main {
                         int opcionE = Integer.parseInt(TipoEquipo);
 
                         if (opcionE == 1) {
-                            JOptionPane.showMessageDialog(null, "Bienvenido al apartado de registro de portatiles");
                             Metodos c = new Metodos();
-                            LinkedList<COMPUTADOR_PORTATIL> ListaC = c.LlenarComputador();
-                            c.MostrarComputadores(ListaC);
-                            String ListaComputadores = JOptionPane.showInputDialog(null, "1. Importar Computadores\n2. Exportar Computadores\n 3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
-                            int ImportarC = Integer.parseInt(ListaComputadores);
-                            switch (ImportarC) {
-                                case 1:
-                                    ImportarComputador importar = new ImportarComputador();
-                                    ListaC = importar.ImportarArchivo();
-                                    c.MostrarComputadores(ListaC);
-                                    break;
-                                case 2:
-                                    ExportarComputadores exportar = new ExportarComputadores();
-                                    exportar.exportarArchivo(ListaC);
-                                    break;
-                            }
+                            c.mostrarMenuIngenieria();
                         } else if (opcionE == 2) {
-                            JOptionPane.showMessageDialog(null, "Bienvenido al apartado de registro de tablets");
                             Metodos m = new Metodos();
-                            LinkedList<TABLETA_GRAFICA> ListaT = m.LlenarTablets();
-                            m.MostrarTablets(ListaT);
-                            String ListaTablets = JOptionPane.showInputDialog(null, "1. Importar Tablets\n2. Exportar Tablets\n3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
-                            int ImportarT = Integer.parseInt(ListaTablets);
-                            switch (ImportarT) {
-                                case 1:
-                                    ImportarTablets importar = new ImportarTablets();
-                                    ListaT = importar.ImportarArchivo();
-                                    m.MostrarTablets(ListaT);
-                                    break;
-                                case 2:
-                                    ExportarTablets exportar = new ExportarTablets();
-                                    exportar.exportarArchivo(ListaT);
-                                    break;
-                            }
+                            m.mostrarMenuDiseño();
                         }
                         break;
                     case 2:
