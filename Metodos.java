@@ -70,6 +70,7 @@ public class Metodos {
 
     public void mostrarMenuDiseño(){
         int opcionD =0;
+        LinkedList<TABLETA_GRAFICA> ListaT = new LinkedList<>();
         while (opcionD !=5){
             String menu = "MENU ESTUDIANTES DISEÑO: \n"
                     + "1. Registrar Préstamo de Tablet \n"
@@ -86,25 +87,32 @@ public class Metodos {
                 switch (opcionD){
                     case 1:
                         JOptionPane.showMessageDialog(null,"Bienvenido al apartado de registro de Tablets");
-                        Metodos m = new Metodos();
-                        LinkedList<TABLETA_GRAFICA> ListaT = m.LlenarTablets();
-                        m.MostrarTablets(ListaT);
+                        ListaT.addAll(LlenarTablets());
+                        MostrarTablets(ListaT);
                         String ListaTablets = JOptionPane.showInputDialog(null, "1. Importar Tablets\n2. Exportar Tablets\n3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
-                        int ImportarT = Integer.parseInt(ListaTablets);
-                        switch (ImportarT) {
-                            case 1:
-                                ImportarTablets importar = new ImportarTablets();
-                                ListaT = importar.ImportarArchivo();
-                                m.MostrarTablets(ListaT);
-                                break;
-                            case 2:
-                                ExportarTablets exportar = new ExportarTablets();
-                                exportar.exportarArchivo(ListaT);
-                                break;
-                        }break;
+                        try{
+                            int ImportarT = Integer.parseInt(ListaTablets);
+                            switch (ImportarT){
+                                case 1:
+                                    ListaT.addAll(ImportarT());
+                                    JOptionPane.showMessageDialog(null,"Importación completada. Lista actualizada:");
+                                    MostrarTablets(ListaT);
+                                    break;
+                                case 2:
+                                    ExportarTablets(ListaT);
+                                    JOptionPane.showMessageDialog(null,"Exportación completa.");
+                                    break;
+                                default:
+                                    JOptionPane.showMessageDialog(null,"Opción inválida");
+                                    break;
+                            }
+                        }catch(NumberFormatException e){
+                            JOptionPane.showMessageDialog(null,"Opción inválida, por favor ingrese un número correcto");
+                        }
+                        break;
                     case 2:
                         JOptionPane.showMessageDialog(null,"Bienvenido al apartado de modificación de Tablets");
-                        /*PONER LO DE DENNIS DE MODIFICAR*/
+                        modificarTablet(ListaT);
                         break;
                     case 3:
                         JOptionPane.showMessageDialog(null,"Bienvenido al apartado de devolución de Tablets");
@@ -112,7 +120,8 @@ public class Metodos {
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null,"Bienvenido al apartado de busqueda de Tablets");
-
+                        BuscarTablet bucarTab = new BuscarTablet();
+                        bucarTab.BuscarT(ListaT);
                         break;
                     case 5:
                         JOptionPane.showMessageDialog(null,"Volviendo al menú principal");
@@ -340,5 +349,67 @@ public class Metodos {
         ImportarTablets importarT = new ImportarTablets();
         LinkedList<TABLETA_GRAFICA> listaT = importarT.ImportarArchivo();
         return listaT;
+    }
+    public class BuscarTablet{
+        public TABLETA_GRAFICA BuscarT(LinkedList<TABLETA_GRAFICA> listaT){
+            String serialBuscarT = JOptionPane.showInputDialog("Ingrese el serial de la tablet que desea buscar: ");
+            TABLETA_GRAFICA resultadoBusquedaT = null;
+            for (TABLETA_GRAFICA ItemBusquedaT : listaT){
+                if (ItemBusquedaT.getSerial().equals(serialBuscarT)){
+                    resultadoBusquedaT = ItemBusquedaT;
+                    break;
+                }
+            }if (resultadoBusquedaT != null){
+                JOptionPane.showMessageDialog(null,"Tablet encontrada:\n"+
+                        "Serial: "+resultadoBusquedaT.getSerial()+"\n"+
+                        "Marca: "+resultadoBusquedaT.getMarca()+"\n"+
+                        "Tamaño: "+resultadoBusquedaT.getTamaño()+"\n"+
+                        "Precio: "+resultadoBusquedaT.getPrecio()+"\n"+
+                        "Peso: "+resultadoBusquedaT.getPeso()+"\n"+
+                        "Almacenamiento: "+resultadoBusquedaT.getTipoA()+"\n");
+            }else{
+                JOptionPane.showMessageDialog(null,"Tablet no encontrada");
+            }
+            return resultadoBusquedaT;
+        }
+    }
+    public void modificarTablet(LinkedList<TABLETA_GRAFICA> ListaT){
+        String serialModificarT = JOptionPane.showInputDialog("Ingrese el serial de la tablet que desea modificar: ");
+        TABLETA_GRAFICA tabletModificar = null;
+        for (TABLETA_GRAFICA itemT : ListaT){
+            if (itemT.getSerial().equals(serialModificarT)){
+                tabletModificar = itemT;
+                break;
+            }
+        }
+        if (tabletModificar != null){
+            String nuevaMarcaT = JOptionPane.showInputDialog("Ingrese la nueva marca de la tablet:",tabletModificar.getMarca());
+            Double nuevoTamañoT = Double.valueOf(JOptionPane.showInputDialog("Ingrese el nuevo tamaño de la tablet en PULGADAS:",tabletModificar.getTamaño()));
+            Double nuevoPrecioT = Double.valueOf(JOptionPane.showInputDialog("Ingrese el nuevo precio de la tablet:",tabletModificar.getPrecio()));
+            Double nuevoPesoT = Double.valueOf(JOptionPane.showInputDialog("Ingrese el nuevo peso de la tablet en KG:",tabletModificar.getPeso()));
+            int storageOpt = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo tipo de almacenamiento:\n1. 256 GB\n2. 512 GB\n3. 1 TB"));
+            String nuevoTipoA;
+            switch (storageOpt){
+                case 1:
+                    nuevoTipoA = "256 GB";
+                    break;
+                case 2:
+                    nuevoTipoA = "512 GB";
+                    break;
+                case 3:
+                    nuevoTipoA = "1 TB";
+                    break;
+                default:
+                    nuevoTipoA = tabletModificar.getTipoA();
+            }
+            tabletModificar.setMarca(nuevaMarcaT);
+            tabletModificar.setTamaño(nuevoTamañoT);
+            tabletModificar.setPrecio(nuevoPrecioT);
+            tabletModificar.setPeso(nuevoPesoT);
+            tabletModificar.setTipoA(nuevoTipoA);
+            JOptionPane.showMessageDialog(null,"La tablet ha sido modificada exitosamente.");
+        }else{
+            JOptionPane.showMessageDialog(null,"No se encontró una tablet con el serial proporcionado.");
+        }
     }
 }
