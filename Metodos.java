@@ -55,8 +55,7 @@ public class Metodos {
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de búsqueda de portátiles");
-                        BuscarComputador buscarCom = new BuscarComputador();
-                        buscarCom.BuscarC(ListaC);  // Usamos la misma ListaC para buscar
+                        BuscarC(ListaC);
                         break;
                     case 5:
                         JOptionPane.showMessageDialog(null, "Volviendo al menú principal");
@@ -120,8 +119,7 @@ public class Metodos {
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null,"Bienvenido al apartado de busqueda de Tablets");
-                        BuscarTablet bucarTab = new BuscarTablet();
-                        bucarTab.BuscarT(ListaT);
+                        BuscarT(ListaT);
                         break;
                     case 5:
                         JOptionPane.showMessageDialog(null,"Volviendo al menú principal");
@@ -255,8 +253,8 @@ public class Metodos {
             System.out.println("------------------------------------");
         }
     }
-    public class BuscarComputador{
-        public COMPUTADOR_PORTATIL BuscarC(LinkedList<COMPUTADOR_PORTATIL> listaC){
+
+    public COMPUTADOR_PORTATIL BuscarC(LinkedList<COMPUTADOR_PORTATIL> listaC){
             String serialBuscarC = JOptionPane.showInputDialog("Ingrese el serial del computador que desea buscar: ");
             COMPUTADOR_PORTATIL resultadoBusquedaC = null;
             for (COMPUTADOR_PORTATIL ItemBusquedaC : listaC){
@@ -276,8 +274,8 @@ public class Metodos {
                 JOptionPane.showMessageDialog(null,"Computador no encontrado");
             }
             return resultadoBusquedaC;
-        }
     }
+
     public void modificarComputador(LinkedList<COMPUTADOR_PORTATIL> listaC) {
         String serialModificar = JOptionPane.showInputDialog("Ingrese el serial del computador que desea modificar: ");
         COMPUTADOR_PORTATIL computadorModificar = null;
@@ -350,8 +348,8 @@ public class Metodos {
         LinkedList<TABLETA_GRAFICA> listaT = importarT.ImportarArchivo();
         return listaT;
     }
-    public class BuscarTablet{
-        public TABLETA_GRAFICA BuscarT(LinkedList<TABLETA_GRAFICA> listaT){
+
+    public TABLETA_GRAFICA BuscarT(LinkedList<TABLETA_GRAFICA> listaT){
             String serialBuscarT = JOptionPane.showInputDialog("Ingrese el serial de la tablet que desea buscar: ");
             TABLETA_GRAFICA resultadoBusquedaT = null;
             for (TABLETA_GRAFICA ItemBusquedaT : listaT){
@@ -371,8 +369,8 @@ public class Metodos {
                 JOptionPane.showMessageDialog(null,"Tablet no encontrada");
             }
             return resultadoBusquedaT;
-        }
     }
+
     public void modificarTablet(LinkedList<TABLETA_GRAFICA> ListaT){
         String serialModificarT = JOptionPane.showInputDialog("Ingrese el serial de la tablet que desea modificar: ");
         TABLETA_GRAFICA tabletModificar = null;
