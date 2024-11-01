@@ -84,5 +84,4 @@ Debe haber un apartado donde el usuario elija ver la disponibilidad del inventar
 
 ## Equipo de Trabajo
 #### Salome Gil Chanci   
-#### Juan Pablo Restrepo Velez 
 #### Gabriel Jaime Cano Oquendo 

@@ -1,21 +1,13 @@
-Serial: 1
-Marca: Hola
-Tamaño: 5.0
-Precio: 9.0
-Sistema Operativo: 4.0
-Tipo de Procesador: 1 TB
-------------------------------------------------------
-Serial: 2
-Marca: 2
-Tamaño: 2.0
-Precio: 2.0
-Sistema Operativo: 2.0
-Tipo de Procesador: 512 GB
-------------------------------------------------------
-Serial: 4
-Marca: 4
-Tamaño: 4.0
-Precio: 4.0
-Sistema Operativo: 4.0
-Tipo de Procesador: 1 TB
+Nombre: gebriel
+Apellido: cano
+Cedula: 34235235
+Telefono: 543534
+Semestre: 4
+Promedio: 4.0
+Serial: ff
+Marca: hp
+Tamaño: 34.0
+Precio: 50000.0
+Sistema Operativo: 43.0
+Tipo de Procesador: 
 ------------------------------------------------------

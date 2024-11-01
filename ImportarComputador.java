@@ -24,13 +24,26 @@ public class ImportarComputador {
             String linea;
             COMPUTADOR_PORTATIL obj = null;
             while ((linea = br.readLine()) != null) {
-                if (linea.startsWith("Serial:")) {
+                if (linea.startsWith("Nombre:")) {
                     if (obj != null) {
                         lista.add(obj);
                     }
-                    obj = new COMPUTADOR_PORTATIL();
+                  obj= new COMPUTADOR_PORTATIL();
+                    obj.setNombre(linea.substring(8));
+                } else if (linea.startsWith("Apellido:")) {
+                    obj.setApellido(linea.substring(10));
+                } else if (linea.startsWith("Cedula:")) {
+                    obj.setCedula(Integer.valueOf(linea.substring(8)));
+                } else if (linea.startsWith("Telefono:")) {
+                    obj.setTelefono(Integer.valueOf(linea.substring(10)));
+                } else if (linea.startsWith("Semestre:")) {
+                    obj.setNumSeme(Integer.parseInt(linea.substring(10)));
+                } else if (linea.startsWith("Promedio:")) {
+                    obj.setPromedio(Integer.parseInt(linea.substring(10)));
+                }else if (linea.startsWith("Serial:")) {
                     obj.setSerial(linea.substring(8));
-                } else if (linea.startsWith("Marca:")) {
+                }
+                else if (linea.startsWith("Marca:")) {
                     obj.setMarca(linea.substring(7));
                 } else if (linea.startsWith("Tamaño:")) {
                     obj.setTamaño(Double.valueOf(linea.substring(8)));

@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.awt.*;
 import java.util.LinkedList;
 
 public class Main {
@@ -11,7 +12,6 @@ public class Main {
                     + "3. IMPRIMIR INVENTARIO TOTAL \n"
                     + "4. SALIR \n";
             String input = JOptionPane.showInputDialog(null, menu, "MENU", JOptionPane.QUESTION_MESSAGE);
-            String menuE = "1. Registrar Portatil \n" + "2. Registrar Tablet \n" + "3. Regresar";
 
             if (input == null) {
                 break;
@@ -21,37 +21,20 @@ public class Main {
                 switch (opcion) {
                     case 1:
                         JOptionPane.showMessageDialog(null, "Menú de registro de equipos");
-                        String TipoEquipo = JOptionPane.showInputDialog(null, menuE, "Que Equipo deseas ingresar?", JOptionPane.QUESTION_MESSAGE);
-                        int opcionE = Integer.parseInt(TipoEquipo);
-
-                        if (opcionE == 1) {
-                            Metodos c = new Metodos();
-                            c.mostrarMenuIngenieria();
-                        } else if (opcionE == 2) {
-                            Metodos m = new Metodos();
-                            m.mostrarMenuDiseño();
-                        }
+                        Metodos m= new Metodos();
+                        m.mostrarMenuIngenieria();
                         break;
                     case 2:
-                        JOptionPane.showMessageDialog(null, "Eliminar Equipo");
+                        JOptionPane.showMessageDialog((Component)null, "Menú de registro de equipos");
+                        Metodos me = new Metodos();
+                        me.mostrarMenuDiseño();
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "Registrar prestamo ingenieria");
-                        objInge obji = new objInge();
-                        LinkedList<Estudiante_ingenieria> ListaInge = obji.llenarEstu();
-                        obji.mostarEstudianteIne(ListaInge);
+                        JOptionPane.showMessageDialog((Component)null, "INVENTARIO");
+                        JOptionPane.showMessageDialog((Component)null, "espere");
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, "Registrar prestamo diseño");
-                        objDiseño obDis = new objDiseño();
-                        LinkedList<Estudiante_diseño> ListaDiseño = obDis.llenarEstu();
-                        obDis.mostarestudiantesDiseño(ListaDiseño);
-                        break;
-                    case 5:
-                        JOptionPane.showMessageDialog(null, "Inventario total ");
-                        break;
-                    case 6:
-                        JOptionPane.showMessageDialog(null, "Saliendo...");
+                        JOptionPane.showMessageDialog(null,"bye");
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opcion invalida", "ERROR", JOptionPane.ERROR_MESSAGE);

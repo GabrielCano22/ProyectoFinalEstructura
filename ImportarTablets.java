@@ -24,12 +24,22 @@ public class ImportarTablets {
             String linea;
             TABLETA_GRAFICA obj = null;
             while ((linea = br.readLine()) != null) {
-                if (linea.startsWith("Serial:")) {
+                if (linea.startsWith("Nombre:")) {
                     if (obj != null) {
                         lista.add(obj);
                     }
-                    obj = new TABLETA_GRAFICA();
-                    obj.setSerial(linea.substring(8));
+                    obj= new TABLETA_GRAFICA();
+                    obj.setNombre(linea.substring(8));
+                } else if (linea.startsWith("Apellido:")) {
+                    obj.setApellido(linea.substring(10));
+                } else if (linea.startsWith("Cedula:")) {
+                    obj.setCedula(Integer.valueOf(linea.substring(8)));
+                } else if (linea.startsWith("Telefono:")) {
+                    obj.setTelefono(Integer.valueOf(linea.substring(10)));
+                } else if (linea.startsWith("Semestre:")) {
+                    obj.setNumSeme(Integer.parseInt(linea.substring(10)));
+                } else if (linea.startsWith("Promedio:")) {
+                    obj.setPromedio(Integer.parseInt(linea.substring(10)));
                 } else if (linea.startsWith("Marca:")) {
                     obj.setMarca(linea.substring(7));
                 } else if (linea.startsWith("Tamaño:")) {

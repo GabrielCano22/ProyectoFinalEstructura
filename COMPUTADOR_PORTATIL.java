@@ -1,5 +1,10 @@
-import java.util.LinkedList;
 public class COMPUTADOR_PORTATIL {
+    String Nombre;
+    String Apellido;
+    int Telefono;
+    int Cedula;
+    double Promedio;
+    int NumSeme;
     String Serial;
     String Marca;
     String SistemaOperativo;
@@ -7,35 +12,64 @@ public class COMPUTADOR_PORTATIL {
     Double Tamaño;
     Double Precio;
 
-
-
-    public COMPUTADOR_PORTATIL(String serial, String marca, Double tamaño, Double precio,String sistemaOperativo, String tipoProcesador) {
-        Serial = serial;
-        Marca = marca;
-        Tamaño = tamaño;
-        Precio = precio;
-        SistemaOperativo = sistemaOperativo;
-        TipoProcesador = tipoProcesador;
-    }
-
     public COMPUTADOR_PORTATIL() {
 
     }
 
-    public String getSistemaOperativo() {
-        return SistemaOperativo;
+    public String getNombre() {
+        return Nombre;
     }
 
-    public String getTipoProcesador() {
-        return TipoProcesador;
+    public void setNombre(String nombre) {
+        Nombre = nombre;
     }
 
-    public void setTipoProcesador(String tipoProcesador) {
-        TipoProcesador = tipoProcesador;
+    public String getApellido() {
+        return Apellido;
     }
 
-    public void setSistemaOperativo(String sistemaOperativo) {
-        SistemaOperativo = sistemaOperativo;
+    public void setApellido(String apellido) {
+        Apellido = apellido;
+    }
+
+    public int getCedula() {
+        return Cedula;
+    }
+
+    public void setCedula(int cedula) {
+        Cedula = cedula;
+    }
+
+    public int getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        Telefono = telefono;
+    }
+
+    public int getNumSeme() {
+        return NumSeme;
+    }
+
+    public void setNumSeme(int numSeme) {
+        NumSeme = numSeme;
+    }
+
+    public double getPromedio() {
+        return Promedio;
+    }
+
+    public void setPromedio(double promedio) {
+        Promedio = promedio;
+    }
+
+    public String getMarca() {
+        return Marca;
+    }
+
+    public void setMarca(String marca) {
+        Marca = marca;
     }
 
     public String getSerial() {
@@ -46,12 +80,20 @@ public class COMPUTADOR_PORTATIL {
         Serial = serial;
     }
 
-    public String getMarca() {
-        return Marca;
+    public String getSistemaOperativo() {
+        return SistemaOperativo;
     }
 
-    public void setMarca(String marca) {
-        Marca = marca;
+    public void setSistemaOperativo(String sistemaOperativo) {
+        SistemaOperativo = sistemaOperativo;
+    }
+
+    public String getTipoProcesador() {
+        return TipoProcesador;
+    }
+
+    public void setTipoProcesador(String tipoProcesador) {
+        TipoProcesador = tipoProcesador;
     }
 
     public Double getTamaño() {
@@ -67,6 +109,21 @@ public class COMPUTADOR_PORTATIL {
     }
 
     public void setPrecio(Double precio) {
+        Precio = precio;
+    }
+
+    public COMPUTADOR_PORTATIL(String nombre, String apellido, int telefono, int cedula, double promedio, int numSeme, String serial, String marca, String sistemaOperativo, String tipoProcesador, Double tamaño, Double precio) {
+        Nombre = nombre;
+        Apellido = apellido;
+        Telefono = telefono;
+        Cedula = cedula;
+        Promedio = promedio;
+        NumSeme = numSeme;
+        Serial = serial;
+        Marca = marca;
+        SistemaOperativo = sistemaOperativo;
+        TipoProcesador = tipoProcesador;
+        Tamaño = tamaño;
         Precio = precio;
     }
 }

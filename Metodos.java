@@ -1,3 +1,5 @@
+import java.awt.*;
+import java.awt.font.NumericShaper;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
@@ -5,7 +7,6 @@ public class Metodos {
     public void mostrarMenuIngenieria() {
         int opcion = 0;
         LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();  // Lista compartida
-
         while (opcion != 5) {
             String menu = "MENU ESTUDIANTES INGENIERIA: \n"
                     + "1. Registrar Préstamo de Equipo \n"
@@ -134,104 +135,307 @@ public class Metodos {
     public LinkedList<COMPUTADOR_PORTATIL> LlenarComputador() {
         boolean continuar = true;
         LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();
+        String Nombre;
+        String Apellido;
+        int Telefono;
+        int Cedula;
+        double Promedio;
+        int NumSeme;
         String Serial;
         String Marca;
         String SistemaOperativo;
-        String TipoProcesador;
-        Double Tamaño;
+        String TipoProcesador = "";
+        Double Tamaño = 0.0;
         Double Precio;
         int opt = 0;
         int OperativeSystem = 0;
         int Procesador =0;
 
         while (continuar) {
-            Serial = JOptionPane.showInputDialog("Ingrese el serial del computador: ");
-            Marca = JOptionPane.showInputDialog("Ingrese la marca del computador: ");
-            Tamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el tamaño del computador en PULGADAS: "));
-            Precio = Double.valueOf(JOptionPane.showInputDialog("Ingrese el precio del computador: "));
-            OperativeSystem = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el sistema operativo que necesita: \n1. Windows 7 \n 2. Windows 10\n 3. Windows 11"));
-            switch (OperativeSystem) {
-                case 1:
-                    SistemaOperativo = "Windows 7";
+            while(true) {
+                Nombre = JOptionPane.showInputDialog("Por favor, ingrese su nombre: ");
+                if (Nombre != null && !Nombre.matches(".*\\d.*")) {
                     break;
-                case 2:
-                    SistemaOperativo = "Windows 10";
-                    break;
-                case 3:
-                    SistemaOperativo = "Windows 11";
-                    break;
-                default:
-                    SistemaOperativo = "Sistema Operativo no valido";
+                } else {
+                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                }
             }
-            Procesador= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de procesador que necesita: \n1. Intel®Core™i5 \n 2. AMD Ryzen"));
-            switch (Procesador) {
-                case 1:
-                    TipoProcesador = "Intel®Core™i5";
-                    break;
-                case 2:
-                    TipoProcesador = "AMD Ryzen";
-                    break;
-                default:
-                    TipoProcesador = "Procesador no valido";
-            }
-            COMPUTADOR_PORTATIL c = new COMPUTADOR_PORTATIL(Serial, Marca, Tamaño, Precio, SistemaOperativo, TipoProcesador);
-            ListaC.add(c);
+                while(true) {
+                    Apellido = JOptionPane.showInputDialog("Por favor, ingrese su apellido: ");
+                    if (Apellido != null && !Apellido.matches(".*\\d.*")) {
+                        break;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "intente otra vez");
+                    }
+                }
+                while(true) {
+                                try {
+                                    Telefono = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese su telefono: "));
+                                    break;
+                                } catch (NumberFormatException e) {
+                                    JOptionPane.showMessageDialog((Component)null, "Entrada no válida. Intente nuevamente.");
+                                }
+                            }
+                            while(true) {
+                                try {
+                                    Cedula = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese su cedula: "));
+                                    break;
+                                } catch (NumberFormatException e) {
+                                    JOptionPane.showMessageDialog((Component)null, "Entreda no validad. Intente nuevamente");
+                                }
+                            }
 
-            String input = JOptionPane.showInputDialog(null, "Desea agregar mas computadores? 1=SI; 2=NO", JOptionPane.QUESTION_MESSAGE);
-            opt = Integer.parseInt(input);
-            if (opt == 2) {
-                continuar = false;
-            }
-        }
+                            while(true) {
+                                try {
+                                    Promedio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su promedio: "));
+                                    break;
+                                } catch (NumberFormatException e) {
+                                    JOptionPane.showMessageDialog((Component)null, "Entrada no válida. Intente nuevamente.");
+                                }
+                            }
+                            while(true) {
+                                try {
+                                    NumSeme = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su numero de semestre: "));
+                                    break;
+                                } catch (NumberFormatException e) {
+                                    JOptionPane.showMessageDialog((Component)null, "Entrada no válida. Intente nuevamente.");
+                                }
+                            }
+
+                            while(true) {
+                                Serial = JOptionPane.showInputDialog("Por favor, el serial del pc: ");
+                                if (Serial != null && !Serial.matches(".*\\d.*")) {
+                                    break;
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                                }
+                            }
+                                while(true) {
+                                    Marca = JOptionPane.showInputDialog("Por favor, ingrese la marca del pc: ");
+                                    if (Marca != null && !Marca.matches(".*\\d.*")) {
+                                        break;
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "intente otra vez");
+                                    }
+                                }
+                                    while (true) {
+                                        try {
+                                            Tamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el tamaño del computador en PULGADAS: "));
+                                            break;
+                                        } catch (NumberFormatException e) {
+                                            JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
+                                        }
+                                    }
+                                        while (true) {
+                                            try {
+                                                Precio= Double.valueOf(JOptionPane.showInputDialog("Ingrese el precio del computador: "));
+                                                break;
+                                            } catch (NumberFormatException e) {
+                                                JOptionPane.showMessageDialog((Component) null, "Entreda no valida. Intente nuevamente");
+                                            }
+                                        }
+
+                                        while (true) {
+                                            try {
+                                                OperativeSystem = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el sistema operativo que necesita: \n1. Windows 7 \n 2. Windows 10\n 3. Windows 11"));
+                                                break;
+                                            } catch (NumberFormatException var27) {
+                                                JOptionPane.showMessageDialog((Component) null, "Entrada no validad. Intente nuevamente");
+                                            }
+                                        }
+
+                                        switch (OperativeSystem) {
+                                            case 1:
+                                                SistemaOperativo = "Windows 7";
+                                                break;
+                                            case 2:
+                                                SistemaOperativo = "Windows 10";
+                                                break;
+                                            case 3:
+                                                SistemaOperativo = "Windows 11";
+                                                break;
+                                            default:
+                                                SistemaOperativo = "no valido";
+                                        }
+
+                                        while (true) {
+                                            try {
+                                                Procesador = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de procesador que necesita: \n1. Intel®Core™i5 \n 2. AMD Ryzen"));
+                                                break;
+                                            } catch (NumberFormatException e) {
+                                                JOptionPane.showMessageDialog((Component) null, "Entrada no valida. Intente nuevamente");
+                                            }
+                                        }
+
+                                                switch (Procesador) {
+                                                    case 1:
+                                                        TipoProcesador = "Intel®Core��i5";
+                                                        break;
+                                                    case 2:
+                                                        TipoProcesador = "AMD Ryzen";
+                                                        break;
+                                                    default:
+                                                        TipoProcesador = "no valido";
+                                                }
+
+                                        COMPUTADOR_PORTATIL c = new COMPUTADOR_PORTATIL(Nombre, Apellido, Telefono, Cedula,Promedio,NumSeme, Serial,Marca,SistemaOperativo,TipoProcesador,Tamaño,Precio);
+                                        ListaC.add(c);
+                                        String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas computadores? 1=SI; 2=NO", 3);
+                                        opt = Integer.parseInt(input);
+                                        if (opt == 2) {
+                                            continuar = false;
+                                        }
+
+                                    }
         return ListaC;
     }
 
     public LinkedList<TABLETA_GRAFICA> LlenarTablets() {
         boolean continuar = true;
         LinkedList<TABLETA_GRAFICA> ListaT = new LinkedList<>();
+        String Nombre;
+        String Apellido;
+        int Telefono;
+        int Cedula;
+        double Promedio;
+        int NumSeme;
         String Serial;
         String Marca;
-        String TipoA;
+        String TipoA = "";
         Double Tamaño;
         Double Precio;
         Double Peso;
         int opt = 0;
         int Storage = 0;
-
         while (continuar) {
-            Serial = JOptionPane.showInputDialog("Ingrese el serial del tablet: ");
-            Marca = JOptionPane.showInputDialog("Ingrese la marca de la tablet: ");
-            Tamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el tamaño de la tablet en PULGADAS: "));
-            Precio = Double.valueOf(JOptionPane.showInputDialog("Ingrese el precio de la tablet: "));
-            Peso = Double.valueOf(JOptionPane.showInputDialog("Ingrese el peso de la tablet en KG: "));
-            Storage = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de almacenamiento que necesita: \n1. 256 GB\n 2. 512 GB\n 3. 1 TB"));
-            switch (Storage) {
-                case 1:
-                    TipoA = "256 GB";
+            while (true) {
+                Nombre = JOptionPane.showInputDialog("Por favor, ingrese su nombre: ");
+                if (Nombre != null && !Nombre.matches(".*\\d.*")) {
                     break;
-                case 2:
-                    TipoA = "512 GB";
-                    break;
-                case 3:
-                    TipoA = "1 TB";
-                    break;
-                default:
-                    TipoA = "Almacenamiento no valido";
+                } else {
+                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                }
             }
 
-            TABLETA_GRAFICA t = new TABLETA_GRAFICA(Serial, Marca, Tamaño, Precio, Peso, TipoA);
+            while (true) {
+                Apellido = JOptionPane.showInputDialog("Por favor, ingrese su nombre: ");
+                if (Apellido != null && !Apellido.matches(".*\\d.*")) {
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                }
+            }
+            while (true) {
+                try {
+                    Telefono = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese su telefono: "));
+                    break;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
+                }
+            }
+            while (true) {
+                try {
+                    Cedula = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese su cedula: "));
+                    break;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog((Component) null, "Entreda no validad. Intente nuevamente");
+                }
+            }
+
+            while (true) {
+                try {
+                    Promedio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su promedio: "));
+                    break;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
+                }
+            }
+            while (true) {
+                try {
+                    NumSeme = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su numero de semestre: "));
+                    break;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
+                }
+            }
+            while (true) {
+                Serial = JOptionPane.showInputDialog("Por favor, el serial del pc: ");
+                if (Serial != null && !Serial.matches(".*\\d.*")) {
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                }
+            }
+            while (true) {
+                Marca = JOptionPane.showInputDialog("Por favor, ingrese la marca del pc: ");
+                if (Marca != null && !Marca.matches(".*\\d.*")) {
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                }
+            }
+            while (true) {
+                try {
+                    Tamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el tamaño del computador en PULGADAS: "));
+                    break;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
+                }
+            }
+            while(true){
+                try{
+                    Precio= Double.valueOf(JOptionPane.showInputDialog(null, "ingrese precio"));
+                    break;
+                }catch (NumberFormatException e){
+                    JOptionPane.showMessageDialog(null, "intete otra vez");
+                }
+            }
+
+            while (true) {
+                try {
+                    Peso = Double.valueOf(JOptionPane.showInputDialog("Ingrese el peso de la tablet en KG: "));
+                    break;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
+                }
+            }
+            while (true) {
+                try {
+                    Storage = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de almacenamiento que necesita: \n1. 256 GB\n 2. 512 GB\n 3. 1 TB"));
+                    break;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
+                }
+            }
+                switch (Storage) {
+                    case 1:
+                        TipoA = "256 GB";
+                    case 2:
+                        TipoA = "512 GB";
+                    case 3:
+                        TipoA = "1 T";
+                    default:
+                        TipoA = "invalido";
+                }
+            TABLETA_GRAFICA t = new TABLETA_GRAFICA(Nombre, Apellido, Telefono, Cedula,Promedio, NumSeme, Serial, Marca, TipoA, Tamaño,Precio,Peso);
             ListaT.add(t);
-            String input = JOptionPane.showInputDialog(null, "Desea agregar mas tablets? 1=SI; 2=NO", JOptionPane.QUESTION_MESSAGE);
+            String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas tablets? 1=SI; 2=NO", 3);
             opt = Integer.parseInt(input);
             if (opt == 2) {
                 continuar = false;
             }
         }
-        return ListaT;
-    }
-
+            return ListaT;
+            }
+            
     public void MostrarTablets(LinkedList<TABLETA_GRAFICA> ListaT) {
         for (TABLETA_GRAFICA itemT : ListaT) {
+            System.out.println("Nombre: " + itemT.getNombre());
+            System.out.println("Apellido: " + itemT.getApellido());
+            System.out.println("Cedula: " + itemT.getCedula());
+            System.out.println("Telefono: " + itemT.getTelefono());
+            System.out.println("Promedio: " + itemT.getPromedio());
+            System.out.println("Numero de Semestre: " + itemT.getNumSeme());
             System.out.println("Serial: " + itemT.getSerial());
             System.out.println("Marca: " + itemT.getMarca());
             System.out.println("Tamaño: " + itemT.getTamaño());
@@ -244,6 +448,12 @@ public class Metodos {
 
     public void MostrarComputadores(LinkedList<COMPUTADOR_PORTATIL> ListaC) {
         for (COMPUTADOR_PORTATIL itemC : ListaC) {
+            System.out.println("Nombre: " + itemC.getNombre());
+            System.out.println("Apellido: " + itemC.getApellido());
+            System.out.println("Cedula: " + itemC.getCedula());
+            System.out.println("Telefono: " + itemC.getTelefono());
+            System.out.println("Promedio: " + itemC.getPromedio());
+            System.out.println("Numero de Semestre: " + itemC.getNumSeme());
             System.out.println("Serial: " + itemC.getSerial());
             System.out.println("Marca: " + itemC.getMarca());
             System.out.println("Tamaño: " + itemC.getTamaño());
@@ -254,16 +464,22 @@ public class Metodos {
         }
     }
 
-    public COMPUTADOR_PORTATIL BuscarC(LinkedList<COMPUTADOR_PORTATIL> listaC){
-            String serialBuscarC = JOptionPane.showInputDialog("Ingrese el serial del computador que desea buscar: ");
+    public COMPUTADOR_PORTATIL BuscarC(LinkedList<COMPUTADOR_PORTATIL> ListaC){
+            int CedulaBuscarC = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cedula del estudiante: "));
             COMPUTADOR_PORTATIL resultadoBusquedaC = null;
-            for (COMPUTADOR_PORTATIL ItemBusquedaC : listaC){
-                if (ItemBusquedaC.getSerial().equals(serialBuscarC)){
+            for (COMPUTADOR_PORTATIL ItemBusquedaC : ListaC){
+                if (ItemBusquedaC.getCedula()==CedulaBuscarC){
                     resultadoBusquedaC = ItemBusquedaC;
                     break;
                 }
             }if (resultadoBusquedaC != null){
                 JOptionPane.showMessageDialog(null,"Computador encontrado:\n"+
+                        "Nombre: "+resultadoBusquedaC.getNombre()+"\n"+
+                        "Apellido: "+resultadoBusquedaC.getApellido()+"\n"+
+                        "Cedula: "+resultadoBusquedaC.getCedula()+"\n"+
+                        "Telefono: "+resultadoBusquedaC.getTelefono()+"\n"+
+                        "Semestre: "+resultadoBusquedaC.getNumSeme()+"\n"+
+                        "Promedio: "+resultadoBusquedaC.getPromedio()+"\n"+
                         "Serial: "+resultadoBusquedaC.getSerial()+"\n"+
                         "Marca: "+resultadoBusquedaC.getMarca()+"\n"+
                         "Tamaño: "+resultadoBusquedaC.getTamaño()+"\n"+
@@ -349,16 +565,22 @@ public class Metodos {
         return listaT;
     }
 
-    public TABLETA_GRAFICA BuscarT(LinkedList<TABLETA_GRAFICA> listaT){
-            String serialBuscarT = JOptionPane.showInputDialog("Ingrese el serial de la tablet que desea buscar: ");
+    public TABLETA_GRAFICA BuscarT(LinkedList<TABLETA_GRAFICA> ListaT){
+            int CedulaBuscarT = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cedula del estudiante: "));
             TABLETA_GRAFICA resultadoBusquedaT = null;
-            for (TABLETA_GRAFICA ItemBusquedaT : listaT){
-                if (ItemBusquedaT.getSerial().equals(serialBuscarT)){
+            for (TABLETA_GRAFICA ItemBusquedaT : ListaT){
+                if (ItemBusquedaT.getCedula()==CedulaBuscarT){
                     resultadoBusquedaT = ItemBusquedaT;
                     break;
                 }
             }if (resultadoBusquedaT != null){
                 JOptionPane.showMessageDialog(null,"Tablet encontrada:\n"+
+                        "Nombre: "+resultadoBusquedaT.getNombre()+"\n"+
+                        "Apellido: "+resultadoBusquedaT.getApellido()+"\n"+
+                        "Cedula: "+resultadoBusquedaT.getCedula()+"\n"+
+                        "Telefono: "+resultadoBusquedaT.getTelefono()+"\n"+
+                        "Semestre: "+resultadoBusquedaT.getNumSeme()+"\n"+
+                        "Promedio: "+resultadoBusquedaT.getPromedio()+"\n"+
                         "Serial: "+resultadoBusquedaT.getSerial()+"\n"+
                         "Marca: "+resultadoBusquedaT.getMarca()+"\n"+
                         "Tamaño: "+resultadoBusquedaT.getTamaño()+"\n"+

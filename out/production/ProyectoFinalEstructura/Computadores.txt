@@ -1,14 +1,13 @@
-Serial: 1
-Marca: 1
-Tamaño: 1.0
-Precio: 1.0
-Sistema Operativo: Windows 7
-Tipo de Procesador: Intel®Core™i5
-------------------------------------------------------
-Serial: 2
-Marca: 2
-Tamaño: 2.0
-Precio: 2.0
+Nombre: salome
+Apellido: gil
+Cedula: 1022145187
+Telefono: 6126193
+Semestre: 4
+Promedio: 4.0
+Serial: ss
+Marca: lenovo
+Tamaño: 23.0
+Precio: 4000000.0
 Sistema Operativo: Windows 10
-Tipo de Procesador: AMD Ryzen
+Tipo de Procesador: Intel®Core��i5
 ------------------------------------------------------

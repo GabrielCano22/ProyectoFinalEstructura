@@ -10,6 +10,12 @@ public class ExportarTablets {
         }
         try (FileWriter e = new FileWriter("Tablets.txt")) {
             for (TABLETA_GRAFICA obj : lista) {
+                e.write("Nombre: " + obj.getNombre() + "\n");
+                e.write("Apellido: " + obj.getApellido() + "\n");
+                e.write("Cedula: " + obj.getCedula() + "\n");
+                e.write("Telefono: " + obj.getTelefono() + "\n");
+                e.write("Semestre: " + obj.getNumSeme() + "\n");
+                e.write("Promedio: " + obj.getPromedio() + "\n");
                 e.write("Serial: " + obj.getSerial() + "\n");
                 e.write("Marca: " + obj.getMarca() + "\n");
                 e.write("Tamaño: " + obj.getTamaño() + "\n");

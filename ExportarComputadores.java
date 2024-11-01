@@ -10,6 +10,12 @@ public class ExportarComputadores {
         }
         try (FileWriter e = new FileWriter("Computadores.txt")) {
             for (COMPUTADOR_PORTATIL obj : lista) {
+                e.write("Nombre: " + obj.getNombre() + "\n");
+                e.write("Apellido: " + obj.getApellido() + "\n");
+                e.write("Cedula: " + obj.getCedula() + "\n");
+                e.write("Telefono: " + obj.getTelefono() + "\n");
+                e.write("Semestre: " + obj.getNumSeme() + "\n");
+                e.write("Promedio: " + obj.getPromedio() + "\n");
                 e.write("Serial: " + obj.getSerial() + "\n");
                 e.write("Marca: " + obj.getMarca() + "\n");
                 e.write("Tamaño: " + obj.getTamaño() + "\n");
