@@ -1,13 +1,13 @@
 Nombre: gabriel
 Apellido: cano
-Cedula: 23456
-Telefono: 65432
+Cedula: 876543
+Telefono: 12345
 Semestre: 4
 Promedio: 3.0
-Serial: dd
+Serial: eeed
 Marca: hp
-Tamaño: 456.0
-Precio: 2345678.0
-Sistema Operativo: Windows 11
+Tamaño: 2345.0
+Precio: 7.65432345E8
+Sistema Operativo: Windows 10
 Tipo de Procesador: AMD Ryzen
 ------------------------------------------------------

@@ -39,7 +39,7 @@ public class ImportarTablets {
                 } else if (linea.startsWith("Semestre:")) {
                     obj.setNumSeme(Integer.parseInt(linea.substring(10)));
                 } else if (linea.startsWith("Promedio:")) {
-                    obj.setPromedio(Integer.parseInt(linea.substring(10)));
+                    obj.setPromedio(Double.parseDouble(linea.substring(10)));
                 } else if (linea.startsWith("Marca:")) {
                     obj.setMarca(linea.substring(7));
                 } else if (linea.startsWith("Tamaño:")) {

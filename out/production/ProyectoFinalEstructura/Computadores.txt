@@ -1,13 +1,26 @@
-Nombre: gabriel
-Apellido: cano
-Cedula: 23456
-Telefono: 65432
+Nombre: dfsd
+Apellido: drg
+Cedula: 34234
+Telefono: 4535
 Semestre: 4
 Promedio: 3.0
-Serial: dd
+Serial: trr
+Marca: lenovo
+Tamaño: 34.0
+Precio: 300000.0
+Sistema Operativo: Windows 10
+Tipo de Procesador: Intel®Core��i5
+------------------------------------------------------
+Nombre: 
+Apellido: 
+Cedula: 32434
+Telefono: 35434
+Semestre: 3
+Promedio: 2.0
+Serial: tggh
 Marca: hp
-Tamaño: 456.0
-Precio: 2345678.0
-Sistema Operativo: Windows 11
-Tipo de Procesador: AMD Ryzen
+Tamaño: 34.0
+Precio: 324567.0
+Sistema Operativo: Windows 10
+Tipo de Procesador: no valido
 ------------------------------------------------------

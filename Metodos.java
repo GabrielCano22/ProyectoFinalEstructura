@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 public class Metodos {
+    int TotalComputadores=0;
+    int TotalTablets=0;
     public void mostrarMenuIngenieria() {
         int opcion = 0;
         LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();  // Lista compartida
@@ -282,11 +284,13 @@ public class Metodos {
 
             COMPUTADOR_PORTATIL c = new COMPUTADOR_PORTATIL(Nombre, Apellido, Telefono, Cedula, Promedio, NumSeme, Serial, Marca, SistemaOperativo, TipoProcesador, Tamaño, Precio);
             ListaC.add(c);
+            TotalComputadores++;
             String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas computadores? 1=SI; 2=NO", 3);
             opt = Integer.parseInt(input);
             if (opt == 2) {
                 continuar = false;
-            }
+            } JOptionPane.showMessageDialog(null, "Computador agregado exitosamente. Total de computadores: " +
+                    TotalComputadores);
 
         }
         return ListaC;
@@ -421,11 +425,13 @@ public class Metodos {
             }
             TABLETA_GRAFICA t = new TABLETA_GRAFICA(Nombre, Apellido, Telefono, Cedula, Promedio, NumSeme, Serial, Marca, TipoA, Tamaño, Precio, Peso);
             ListaT.add(t);
+            TotalTablets++;
             String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas tablets? 1=SI; 2=NO", 3);
             opt = Integer.parseInt(input);
             if (opt == 2) {
                 continuar = false;
-            }
+            }JOptionPane.showMessageDialog(null, "Tablet agregada exitosamente. Total de tablets: " +
+                    TotalTablets);
         }
         return ListaT;
     }
@@ -649,6 +655,25 @@ public class Metodos {
                 iterator.remove();
                 JOptionPane.showMessageDialog(null, "El computador ha sido eliminado de la lista");
                 encontrado = true;
+                TotalComputadores--;
+                break;
+            }
+        }
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(null, "No se halló el computador");
+        }
+        return listaC;
+    }public LinkedList<TABLETA_GRAFICA> DevolverTb(LinkedList<TABLETA_GRAFICA> listaT) {
+        String SerialDevolverT = JOptionPane.showInputDialog("Ingrese el serial del computador a devolver: ");
+        boolean encontrado = false;
+        Iterator<TABLETA_GRAFICA> iterator = listaT.iterator();
+        while (iterator.hasNext()) {
+            TABLETA_GRAFICA ta = iterator.next();
+            if (ta.getSerial().equals(SerialDevolverT)) {
+                iterator.remove();
+                JOptionPane.showMessageDialog(null, "El computador ha sido eliminado de la lista");
+                encontrado = true;
+                TotalTablets--;
                 break;
             }
         }
@@ -656,6 +681,12 @@ public class Metodos {
         if (!encontrado) {
             JOptionPane.showMessageDialog(null, "No se halló el computador");
         }
-        return listaC;
+        return listaT;
+    }public void MostrarInventario(){
+        int InventarioTotal=TotalComputadores+TotalTablets;
+        JOptionPane.showMessageDialog(null, "Inventario Total:\n" +
+                "Computadores: " + TotalComputadores + "\n" +
+                "Tablets: " + TotalTablets + "\n" +
+                "Inventario total: " + InventarioTotal);
     }
 }

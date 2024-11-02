@@ -39,7 +39,7 @@ public class ImportarComputador {
                 } else if (linea.startsWith("Semestre:")) {
                     obj.setNumSeme(Integer.parseInt(linea.substring(10)));
                 } else if (linea.startsWith("Promedio:")) {
-                    obj.setPromedio(Integer.parseInt(linea.substring(10)));
+                    obj.setPromedio(Double.parseDouble(linea.substring(10)));
                 }else if (linea.startsWith("Serial:")) {
                     obj.setSerial(linea.substring(8));
                 }

@@ -31,7 +31,8 @@ public class Main {
                         break;
                     case 3:
                         JOptionPane.showMessageDialog((Component)null, "INVENTARIO");
-                        JOptionPane.showMessageDialog((Component)null, "espere");
+                        Metodos mt= new Metodos();
+                        mt.MostrarInventario();
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null,"bye");
