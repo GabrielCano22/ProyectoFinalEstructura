@@ -1,13 +1,13 @@
-Nombre: gebriel
-Apellido: cano
-Cedula: 34235235
-Telefono: 543534
+Nombre: salome
+Apellido: gil
+Cedula: 1022145187
+Telefono: 6126193
 Semestre: 4
 Promedio: 4.0
-Serial: ff
-Marca: hp
-Tamaño: 34.0
-Precio: 50000.0
-Sistema Operativo: 43.0
+Serial: sss
+Marca: lg
+Tamaño: 30.0
+Precio: 5000000.0
+Sistema Operativo: 34.0
 Tipo de Procesador: 
 ------------------------------------------------------

@@ -8,7 +8,6 @@ public class Metodos {
     private int TotalTablets = 0;
     private LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();
     private LinkedList<TABLETA_GRAFICA> ListaT = new LinkedList<>();
-
     public void mostrarMenuIngenieria() {
         int opcion = 0;
         while (opcion != 5) {
@@ -157,19 +156,19 @@ public class Metodos {
 
         while (continuar) {
             while (true) {
-                Nombre = JOptionPane.showInputDialog("Por favor, ingrese su nombre: ");
+                Nombre = JOptionPane.showInputDialog("Por favor ingrese su nombre: ");
                 if (Nombre != null && !Nombre.matches(".*\\d.*")) {
                     break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
                 }
             }
             while (true) {
-                Apellido = JOptionPane.showInputDialog("Por favor, ingrese su apellido: ");
+                Apellido = JOptionPane.showInputDialog("Por favor ingrese su apellido: ");
                 if (Apellido != null && !Apellido.matches(".*\\d.*")) {
                     break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
                 }
             }
             while (true) {
@@ -191,7 +190,7 @@ public class Metodos {
 
             while (true) {
                 try {
-                    Promedio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su promedio: "));
+                    Promedio = Double.parseDouble(JOptionPane.showInputDialog("Por favor ingrese su promedio: "));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
@@ -199,7 +198,7 @@ public class Metodos {
             }
             while (true) {
                 try {
-                    NumSeme = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su numero de semestre: "));
+                    NumSeme = Integer.parseInt(JOptionPane.showInputDialog("Por facor ingrese su numero de semestre: "));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
@@ -207,24 +206,24 @@ public class Metodos {
             }
 
             while (true) {
-                Serial = JOptionPane.showInputDialog("Por favor, el serial del pc: ");
+                Serial = JOptionPane.showInputDialog("Por favor ingrese el serial del pc: ");
                 if (Serial != null && !Serial.matches(".*\\d.*")) {
                     break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
                 }
             }
             while (true) {
-                Marca = JOptionPane.showInputDialog("Por favor, ingrese la marca del pc: ");
+                Marca = JOptionPane.showInputDialog("Por favor ingrese la marca del pc: ");
                 if (Marca != null && !Marca.matches(".*\\d.*")) {
                     break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
                 }
             }
             while (true) {
                 try {
-                    Tamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el tamaño del computador en PULGADAS: "));
+                    Tamaño = Double.valueOf(JOptionPane.showInputDialog("Por favor ingrese el tamaño del computador en PULGADAS: "));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
@@ -232,7 +231,7 @@ public class Metodos {
             }
             while (true) {
                 try {
-                    Precio = Double.valueOf(JOptionPane.showInputDialog("Ingrese el precio del computador: "));
+                    Precio = Double.valueOf(JOptionPane.showInputDialog("Por favor ingrese el precio del computador: "));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog((Component) null, "Entreda no valida. Intente nuevamente");
@@ -241,7 +240,7 @@ public class Metodos {
 
             while (true) {
                 try {
-                    OperativeSystem = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el sistema operativo que necesita: \n1. Windows 7 \n 2. Windows 10\n 3. Windows 11"));
+                    OperativeSystem = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese el sistema operativo que necesita: \n1. Windows 7 \n 2. Windows 10\n 3. Windows 11"));
                     break;
                 } catch (NumberFormatException var27) {
                     JOptionPane.showMessageDialog((Component) null, "Entrada no validad. Intente nuevamente");
@@ -264,7 +263,7 @@ public class Metodos {
 
             while (true) {
                 try {
-                    Procesador = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de procesador que necesita: \n1. Intel®Core™i5 \n 2. AMD Ryzen"));
+                    Procesador = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese el tipo de procesador que necesita: \n1. Intel®Core™i5 \n 2. AMD Ryzen"));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog((Component) null, "Entrada no valida. Intente nuevamente");
@@ -285,7 +284,7 @@ public class Metodos {
             COMPUTADOR_PORTATIL c = new COMPUTADOR_PORTATIL(Nombre, Apellido, Telefono, Cedula, Promedio, NumSeme, Serial, Marca, SistemaOperativo, TipoProcesador, Tamaño, Precio);
             ListaC.add(c);
             TotalComputadores++;
-            String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas computadores? 1=SI; 2=NO", 3);
+            String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas computadores? 1=SI; 2=NO", 1);
             opt = Integer.parseInt(input);
             if (opt == 2) {
                 continuar = false;
@@ -315,20 +314,20 @@ public class Metodos {
         int Storage = 0;
         while (continuar) {
             while (true) {
-                Nombre = JOptionPane.showInputDialog("Por favor, ingrese su nombre: ");
+                Nombre = JOptionPane.showInputDialog("Por favor ingrese su nombre: ");
                 if (Nombre != null && !Nombre.matches(".*\\d.*")) {
                     break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.intente otra vez");
                 }
             }
 
             while (true) {
-                Apellido = JOptionPane.showInputDialog("Por favor, ingrese su nombre: ");
+                Apellido = JOptionPane.showInputDialog("Por favor ingrese su apellido: ");
                 if (Apellido != null && !Apellido.matches(".*\\d.*")) {
                     break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.intente otra vez");
                 }
             }
             while (true) {
@@ -350,7 +349,7 @@ public class Metodos {
 
             while (true) {
                 try {
-                    Promedio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su promedio: "));
+                    Promedio = Double.parseDouble(JOptionPane.showInputDialog("Por favor ingrese su promedio: "));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
@@ -358,22 +357,22 @@ public class Metodos {
             }
             while (true) {
                 try {
-                    NumSeme = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su numero de semestre: "));
+                    NumSeme = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese su numero de semestre: "));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
                 }
             }
             while (true) {
-                Serial = JOptionPane.showInputDialog("Por favor, el serial del pc: ");
+                Serial = JOptionPane.showInputDialog("Por favor ingrese el serial de la tablet ");
                 if (Serial != null && !Serial.matches(".*\\d.*")) {
                     break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "intente otra vez");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
                 }
             }
             while (true) {
-                Marca = JOptionPane.showInputDialog("Por favor, ingrese la marca del pc: ");
+                Marca = JOptionPane.showInputDialog("Por favor ingrese la marca de la tablet: ");
                 if (Marca != null && !Marca.matches(".*\\d.*")) {
                     break;
                 } else {
@@ -382,7 +381,7 @@ public class Metodos {
             }
             while (true) {
                 try {
-                    Tamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el tamaño del computador en PULGADAS: "));
+                    Tamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el tamaño de la tablet en PULGADAS: "));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
@@ -390,16 +389,16 @@ public class Metodos {
             }
             while (true) {
                 try {
-                    Precio = Double.valueOf(JOptionPane.showInputDialog(null, "ingrese precio"));
+                    Precio = Double.valueOf(JOptionPane.showInputDialog(null, "Por favor ingrese el precio de la tablet"));
                     break;
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "intete otra vez");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
                 }
             }
 
             while (true) {
                 try {
-                    Peso = Double.valueOf(JOptionPane.showInputDialog("Ingrese el peso de la tablet en KG: "));
+                    Peso = Double.valueOf(JOptionPane.showInputDialog("Por favor Ingrese el peso de la tablet en KG: "));
                     break;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
@@ -407,26 +406,30 @@ public class Metodos {
             }
             while (true) {
                 try {
-                    Storage = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de almacenamiento que necesita: \n1. 256 GB\n 2. 512 GB\n 3. 1 TB"));
+                    Storage = Integer.parseInt(JOptionPane.showInputDialog("Por favor Ingrese el tipo de almacenamiento que necesita: \n1. 256 GB\n 2. 512 GB\n 3. 1 TB"));
+                    switch (Storage) {
+                        case 1:
+                            TipoA = "256 GB";
+                            break;
+                        case 2:
+                            TipoA = "512 GB";
+                            break;
+                        case 3:
+                            TipoA = "1 TB";
+                            break;
+                        default:
+                            TipoA = "Inválido";
+                            JOptionPane.showMessageDialog(null, "Opción no válida.");
+                    }
                     break;
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog((Component) null, "Entrada no válida. Intente nuevamente.");
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
                 }
-            }
-            switch (Storage) {
-                case 1:
-                    TipoA = "256 GB";
-                case 2:
-                    TipoA = "512 GB";
-                case 3:
-                    TipoA = "1 T";
-                default:
-                    TipoA = "invalido";
             }
             TABLETA_GRAFICA t = new TABLETA_GRAFICA(Nombre, Apellido, Telefono, Cedula, Promedio, NumSeme, Serial, Marca, TipoA, Tamaño, Precio, Peso);
             ListaT.add(t);
             TotalTablets++;
-            String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas tablets? 1=SI; 2=NO", 3);
+            String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas tablets? 1=SI; 2=NO", 1);
             opt = Integer.parseInt(input);
             if (opt == 2) {
                 continuar = false;

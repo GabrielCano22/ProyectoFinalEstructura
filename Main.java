@@ -33,7 +33,7 @@ public class Main {
                         metodos.MostrarInventarioTotal();
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null,"bye");
+                        JOptionPane.showMessageDialog(null,"Hasta luego.");
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opcion invalida", "ERROR", JOptionPane.ERROR_MESSAGE);
