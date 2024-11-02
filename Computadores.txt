@@ -1,13 +1,13 @@
-Nombre: gabriel
-Apellido: cano
-Cedula: 876543
-Telefono: 12345
-Semestre: 4
-Promedio: 3.0
-Serial: eeed
-Marca: hp
-Tamaño: 2345.0
-Precio: 7.65432345E8
-Sistema Operativo: Windows 10
-Tipo de Procesador: AMD Ryzen
+Nombre: a
+Apellido: a
+Cedula: 1
+Telefono: 1
+Semestre: 1
+Promedio: 1.0
+Serial: a
+Marca: a
+Tamaño: 1.0
+Precio: 1.0
+Sistema Operativo: Windows 7
+Tipo de Procesador: Intel®Core™i5
 ------------------------------------------------------

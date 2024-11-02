@@ -1,13 +1,13 @@
-Nombre: gebriel
-Apellido: cano
-Cedula: 34235235
-Telefono: 543534
-Semestre: 4
-Promedio: 4.0
-Serial: ff
-Marca: hp
-Tamaño: 34.0
-Precio: 50000.0
-Sistema Operativo: 43.0
-Tipo de Procesador: 
+Nombre: 
+Apellido: a
+Cedula: 1
+Telefono: 1
+Semestre: 1
+Promedio: 1.0
+Serial: s
+Marca: s
+Tamaño: 1.0
+Precio: 1.0
+Sistema Operativo: 1.0
+Tipo de Procesador: invalido
 ------------------------------------------------------

@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
+        Metodos metodos = new Metodos();
         int opcion = 0;
         while (opcion != 4) {
             String menu = "MENU PRINCIPAL: \n"
@@ -21,18 +22,15 @@ public class Main {
                 switch (opcion) {
                     case 1:
                         JOptionPane.showMessageDialog(null, "Menú de registro de equipos");
-                        Metodos m= new Metodos();
-                        m.mostrarMenuIngenieria();
+                        metodos.mostrarMenuIngenieria();
                         break;
                     case 2:
                         JOptionPane.showMessageDialog((Component)null, "Menú de registro de equipos");
-                        Metodos me = new Metodos();
-                        me.mostrarMenuDiseño();
+                        metodos.mostrarMenuDiseño();
                         break;
                     case 3:
                         JOptionPane.showMessageDialog((Component)null, "INVENTARIO");
-                        Metodos mt= new Metodos();
-                        mt.MostrarInventario();
+                        metodos.MostrarInventarioTotal();
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null,"bye");

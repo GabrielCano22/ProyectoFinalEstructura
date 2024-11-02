@@ -1,15 +1,16 @@
 import java.awt.*;
-import java.awt.font.NumericShaper;
 import java.util.Iterator;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 public class Metodos {
-    int TotalComputadores=0;
-    int TotalTablets=0;
+    private int TotalComputadores = 0;
+    private int TotalTablets = 0;
+    private LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();
+    private LinkedList<TABLETA_GRAFICA> ListaT = new LinkedList<>();
+
     public void mostrarMenuIngenieria() {
         int opcion = 0;
-        LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();  // Lista compartida
         while (opcion != 5) {
             String menu = "MENU ESTUDIANTES INGENIERIA: \n"
                     + "1. Registrar Préstamo de Equipo \n"
@@ -73,7 +74,6 @@ public class Metodos {
 
     public void mostrarMenuDiseño() {
         int opcionD = 0;
-        LinkedList<TABLETA_GRAFICA> ListaT = new LinkedList<>();
         while (opcionD != 5) {
             String menu = "MENU ESTUDIANTES DISEÑO: \n"
                     + "1. Registrar Préstamo de Tablet \n"
@@ -119,7 +119,7 @@ public class Metodos {
                         break;
                     case 3:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de devolución de Tablets");
-                        /*PONER LO DE DENNIS DE DEVOLUCION*/
+                        DevolverTb(ListaT);
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de busqueda de Tablets");
@@ -273,7 +273,7 @@ public class Metodos {
 
             switch (Procesador) {
                 case 1:
-                    TipoProcesador = "Intel®Core��i5";
+                    TipoProcesador = "Intel®Core™i5";
                     break;
                 case 2:
                     TipoProcesador = "AMD Ryzen";
@@ -289,8 +289,8 @@ public class Metodos {
             opt = Integer.parseInt(input);
             if (opt == 2) {
                 continuar = false;
-            } JOptionPane.showMessageDialog(null, "Computador agregado exitosamente. Total de computadores: " +
-                    TotalComputadores);
+            }
+            JOptionPane.showMessageDialog(null, "Computador agregado exitosamente. Total de computadores: " + TotalComputadores);
 
         }
         return ListaC;
@@ -430,8 +430,8 @@ public class Metodos {
             opt = Integer.parseInt(input);
             if (opt == 2) {
                 continuar = false;
-            }JOptionPane.showMessageDialog(null, "Tablet agregada exitosamente. Total de tablets: " +
-                    TotalTablets);
+            }
+            JOptionPane.showMessageDialog(null, "Tablet agregada exitosamente. Total de tablets: " + TotalTablets);
         }
         return ListaT;
     }
@@ -663,7 +663,8 @@ public class Metodos {
             JOptionPane.showMessageDialog(null, "No se halló el computador");
         }
         return listaC;
-    }public LinkedList<TABLETA_GRAFICA> DevolverTb(LinkedList<TABLETA_GRAFICA> listaT) {
+    }
+    public LinkedList<TABLETA_GRAFICA> DevolverTb(LinkedList<TABLETA_GRAFICA> listaT) {
         String SerialDevolverT = JOptionPane.showInputDialog("Ingrese el serial del computador a devolver: ");
         boolean encontrado = false;
         Iterator<TABLETA_GRAFICA> iterator = listaT.iterator();
@@ -682,7 +683,7 @@ public class Metodos {
             JOptionPane.showMessageDialog(null, "No se halló el computador");
         }
         return listaT;
-    }public void MostrarInventario(){
+    }public void MostrarInventarioTotal(){
         int InventarioTotal=TotalComputadores+TotalTablets;
         JOptionPane.showMessageDialog(null, "Inventario Total:\n" +
                 "Computadores: " + TotalComputadores + "\n" +
