@@ -1,13 +1,13 @@
-Nombre: salome
-Apellido: gil
-Cedula: 1022145187
-Telefono: 6126193
+Nombre: gabriel
+Apellido: cano
+Cedula: 23456
+Telefono: 65432
 Semestre: 4
-Promedio: 4.0
-Serial: ss
-Marca: lenovo
-Tamaño: 23.0
-Precio: 4000000.0
-Sistema Operativo: Windows 10
-Tipo de Procesador: Intel®Core��i5
+Promedio: 3.0
+Serial: dd
+Marca: hp
+Tamaño: 456.0
+Precio: 2345678.0
+Sistema Operativo: Windows 11
+Tipo de Procesador: AMD Ryzen
 ------------------------------------------------------
