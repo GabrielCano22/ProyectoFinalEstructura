@@ -4,10 +4,14 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 public class Metodos {
+    // Variables para llevar el control de la cantidad de computadores y tablets
     private int TotalComputadores = 0;
     private int TotalTablets = 0;
     private LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();
     private LinkedList<TABLETA_GRAFICA> ListaT = new LinkedList<>();
+    //Las declaramos como private para que estas sean manipuladas unicamente desde la clase métodos
+
+    // Método para mostrar el menú de estudiantes de ingeniería
     public void mostrarMenuIngenieria() {
         int opcion = 0;
         while (opcion != 5) {
@@ -26,8 +30,11 @@ public class Metodos {
                 switch (opcion) {
                     case 1:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de registro de portátiles");
+                        // LlenarComputador() retorna una lista de computadores
                         ListaC.addAll(LlenarComputador());
+                        // MostrarComputadores() imprime en consola la lista de computadores
                         MostrarComputadores(ListaC);
+                        // Se pregunta al usuario si desea importar o exportar la lista de computadores
                         String listaComputadores = JOptionPane.showInputDialog(null, "1. Importar Computadores\n2. Exportar Computadores\n3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
                         try {
                             int importarC = Integer.parseInt(listaComputadores);
@@ -51,14 +58,17 @@ public class Metodos {
                         break;
                     case 2:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de modificación de portátiles");
+                        // modificarComputador() modifica un computador de la listaC
                         modificarComputador(ListaC);
                         break;
                     case 3:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de devolución de portátiles");
+                        // DevolverPc() hace la cancelacion de un computador de la listaC
                         DevolverPc(ListaC);
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de búsqueda de portátiles");
+                        // BuscarC() busca un computador en la listaC
                         BuscarC(ListaC);
                         break;
                     case 5:
@@ -70,7 +80,7 @@ public class Metodos {
             }
         }
     }
-
+    // Método para mostrar el menú de estudiantes de diseño
     public void mostrarMenuDiseño() {
         int opcionD = 0;
         while (opcionD != 5) {
@@ -89,8 +99,11 @@ public class Metodos {
                 switch (opcionD) {
                     case 1:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de registro de Tablets");
+                        // LlenarTablets() retorna una lista de tablets
                         ListaT.addAll(LlenarTablets());
+                        // MostrarTablets() imprime en consola la lista de tablets
                         MostrarTablets(ListaT);
+                        // Se pregunta al usuario si desea importar o exportar la lista de tablets
                         String ListaTablets = JOptionPane.showInputDialog(null, "1. Importar Tablets\n2. Exportar Tablets\n3. Continuar", "Deseas conocer la lista de equipos?", JOptionPane.QUESTION_MESSAGE);
                         try {
                             int ImportarT = Integer.parseInt(ListaTablets);
@@ -114,14 +127,17 @@ public class Metodos {
                         break;
                     case 2:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de modificación de Tablets");
+                        // Le permite al usuario modificar una tablet de la listaT
                         modificarTablet(ListaT);
                         break;
                     case 3:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de devolución de Tablets");
+                        // Le permite al usuario devolver una tablet de la listaT
                         DevolverTb(ListaT);
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null, "Bienvenido al apartado de busqueda de Tablets");
+                        // Le permite al usuario buscar una tablet en la listaT
                         BuscarT(ListaT);
                         break;
                     case 5:
@@ -135,9 +151,13 @@ public class Metodos {
         }
     }
 
+    // Metodo para llenar la lista de computadores
     public LinkedList<COMPUTADOR_PORTATIL> LlenarComputador() {
+        // Se inicializa la variable continuar en true para que el ciclo while se ejecute al menos una vez
         boolean continuar = true;
+        // Se crea una lista de computadores
         LinkedList<COMPUTADOR_PORTATIL> ListaC = new LinkedList<>();
+        // Se inicializan las variables que se van a utilizar
         String Nombre;
         String Apellido;
         int Telefono;
@@ -280,9 +300,11 @@ public class Metodos {
                 default:
                     TipoProcesador = "no valido";
             }
-
+            // Se crea un objeto COMPUTADOR_PORTATIL con los datos ingresados
             COMPUTADOR_PORTATIL c = new COMPUTADOR_PORTATIL(Nombre, Apellido, Telefono, Cedula, Promedio, NumSeme, Serial, Marca, SistemaOperativo, TipoProcesador, Tamaño, Precio);
+            // Se agrega el objeto a la lista de computadores
             ListaC.add(c);
+            // Se incrementa el total de computadores
             TotalComputadores++;
             String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas computadores? 1=SI; 2=NO", 1);
             opt = Integer.parseInt(input);
@@ -295,9 +317,13 @@ public class Metodos {
         return ListaC;
     }
 
+    // Método para llenar la lista de tablets
     public LinkedList<TABLETA_GRAFICA> LlenarTablets() {
+        // Se inicializa la variable continuar en true para que el ciclo while se ejecute al menos una vez
         boolean continuar = true;
+        // Se crea una lista de tablets
         LinkedList<TABLETA_GRAFICA> ListaT = new LinkedList<>();
+        // Se inicializan las variables que se van a utilizar
         String Nombre;
         String Apellido;
         int Telefono;
@@ -426,8 +452,11 @@ public class Metodos {
                     JOptionPane.showMessageDialog(null, "Entrada no válida. Intente nuevamente.");
                 }
             }
+            // Se crea un objeto TABLETA_GRAFICA con los datos ingresados
             TABLETA_GRAFICA t = new TABLETA_GRAFICA(Nombre, Apellido, Telefono, Cedula, Promedio, NumSeme, Serial, Marca, TipoA, Tamaño, Precio, Peso);
+            // Se agrega el objeto a la lista de tablets
             ListaT.add(t);
+            // Se incrementa el total de tablets
             TotalTablets++;
             String input = JOptionPane.showInputDialog((Component) null, "Desea agregar mas tablets? 1=SI; 2=NO", 1);
             opt = Integer.parseInt(input);
@@ -438,7 +467,7 @@ public class Metodos {
         }
         return ListaT;
     }
-
+    //Método para mostrar en consola y en la ejecucion todos los datos ingresados de las tablets
     public void MostrarTablets(LinkedList<TABLETA_GRAFICA> ListaT) {
         for (TABLETA_GRAFICA itemT : ListaT) {
             System.out.println("Nombre: " + itemT.getNombre());
@@ -457,6 +486,7 @@ public class Metodos {
         }
     }
 
+    // Método para mostrar en consola y en la ejecución todos los datos ingresados de los computadores
     public void MostrarComputadores(LinkedList<COMPUTADOR_PORTATIL> ListaC) {
         for (COMPUTADOR_PORTATIL itemC : ListaC) {
             System.out.println("Nombre: " + itemC.getNombre());
@@ -475,15 +505,20 @@ public class Metodos {
         }
     }
 
+    //Metodo para buscar un computador en la lista de computadores
     public COMPUTADOR_PORTATIL BuscarC(LinkedList<COMPUTADOR_PORTATIL> ListaC) {
+        // Hacemos que se busque por la cedula del estudiante
         int CedulaBuscarC = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cedula del estudiante: "));
         COMPUTADOR_PORTATIL resultadoBusquedaC = null;
+        // Recorremos la lista de computadores
         for (COMPUTADOR_PORTATIL ItemBusquedaC : ListaC) {
+            // Si la cedula del estudiante es igual a la cedula ingresada por el usuario se muestra la informacion del computador
             if (ItemBusquedaC.getCedula() == CedulaBuscarC) {
                 resultadoBusquedaC = ItemBusquedaC;
                 break;
             }
         }
+        // Si el computador se encuentra en la lista se muestra la informacion del computador
         if (resultadoBusquedaC != null) {
             JOptionPane.showMessageDialog(null, "Computador encontrado:\n" +
                     "Nombre: " + resultadoBusquedaC.getNombre() + "\n" +
@@ -504,15 +539,20 @@ public class Metodos {
         return resultadoBusquedaC;
     }
 
+    // Metodo para modificar un computador en la lista de computadores
     public void modificarComputador(LinkedList<COMPUTADOR_PORTATIL> listaC) {
+        // Se pide al usuario que ingrese el serial del computador que desea modificar
         String serialModificar = JOptionPane.showInputDialog("Ingrese el serial del computador que desea modificar: ");
         COMPUTADOR_PORTATIL computadorModificar = null;
+        // Se recorre la lista de computadores para buscar el computador con el serial ingresado
         for (COMPUTADOR_PORTATIL item : listaC) {
+            // Si el serial del computador es igual al serial ingresado por el usuario se guarda el computador en la variable computadorModificar
             if (item.getSerial().equals(serialModificar)) {
                 computadorModificar = item;
                 break;
             }
         }
+        // Si se encuentra el computador se pide al usuario que ingrese los nuevos datos del computador
         if (computadorModificar != null) {
             String nuevaMarca = JOptionPane.showInputDialog("Ingrese la nueva marca del computador:", computadorModificar.getMarca());
             Double nuevoTamaño = Double.valueOf(JOptionPane.showInputDialog("Ingrese el nuevo tamaño del computador en PULGADAS:", computadorModificar.getTamaño()));
@@ -545,6 +585,7 @@ public class Metodos {
                 default:
                     nuevoProcesador = computadorModificar.getTipoProcesador();
             }
+            // Se modifican los datos del computador
             computadorModificar.setMarca(nuevaMarca);
             computadorModificar.setTamaño(nuevoTamaño);
             computadorModificar.setPrecio(nuevoPrecio);
@@ -557,37 +598,46 @@ public class Metodos {
         }
     }
 
+    // Método para exportar la lista de computadores a un archivo
     public void ExportarComputadores(LinkedList<COMPUTADOR_PORTATIL> listaC) {
         ExportarComputadores exportarC = new ExportarComputadores();
         exportarC.exportarArchivo(listaC);
     }
 
+    // Método para importar la lista de computadores desde un archivo
     public LinkedList<COMPUTADOR_PORTATIL> ImportarC() {
         ImportarComputador importarC = new ImportarComputador();
         LinkedList<COMPUTADOR_PORTATIL> listaC = importarC.ImportarArchivo();
         return listaC;
     }
 
+    // Método para exportar la lista de tablets a un archivo
     public void ExportarTablets(LinkedList<TABLETA_GRAFICA> listaT) {
         ExportarTablets exportarT = new ExportarTablets();
         exportarT.exportarArchivo(listaT);
     }
 
+    // Método para importar la lista de tablets desde un archivo
     public LinkedList<TABLETA_GRAFICA> ImportarT() {
         ImportarTablets importarT = new ImportarTablets();
         LinkedList<TABLETA_GRAFICA> listaT = importarT.ImportarArchivo();
         return listaT;
     }
 
+    // Método para buscar una tablet en la lista de tablets
     public TABLETA_GRAFICA BuscarT(LinkedList<TABLETA_GRAFICA> ListaT) {
+        // Se busca la tablet por la cedula del estudiante
         int CedulaBuscarT = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cedula del estudiante: "));
+        // Se inicializa la variable resultadoBusquedaT en null
         TABLETA_GRAFICA resultadoBusquedaT = null;
+        // Se recorre la lista de tablets para buscar la tablet con la cedula ingresada por el usuario
         for (TABLETA_GRAFICA ItemBusquedaT : ListaT) {
             if (ItemBusquedaT.getCedula() == CedulaBuscarT) {
                 resultadoBusquedaT = ItemBusquedaT;
                 break;
             }
         }
+        // Si se encuentra la tablet se muestra la informacion de la tablet
         if (resultadoBusquedaT != null) {
             JOptionPane.showMessageDialog(null, "Tablet encontrada:\n" +
                     "Nombre: " + resultadoBusquedaT.getNombre() + "\n" +
@@ -608,15 +658,19 @@ public class Metodos {
         return resultadoBusquedaT;
     }
 
+    // Método para modificar una tablet en la lista de tablets
     public void modificarTablet(LinkedList<TABLETA_GRAFICA> ListaT) {
+        // Se pide al usuario que ingrese el serial de la tablet que desea modificar
         String serialModificarT = JOptionPane.showInputDialog("Ingrese el serial de la tablet que desea modificar: ");
         TABLETA_GRAFICA tabletModificar = null;
+        // Se recorre la lista de tablets para buscar la tablet con el serial ingresado
         for (TABLETA_GRAFICA itemT : ListaT) {
             if (itemT.getSerial().equals(serialModificarT)) {
                 tabletModificar = itemT;
                 break;
             }
         }
+        // Si se encuentra la tablet se pide al usuario que ingrese los nuevos datos de la tablet
         if (tabletModificar != null) {
             String nuevaMarcaT = JOptionPane.showInputDialog("Ingrese la nueva marca de la tablet:", tabletModificar.getMarca());
             Double nuevoTamañoT = Double.valueOf(JOptionPane.showInputDialog("Ingrese el nuevo tamaño de la tablet en PULGADAS:", tabletModificar.getTamaño()));
@@ -637,6 +691,7 @@ public class Metodos {
                 default:
                     nuevoTipoA = tabletModificar.getTipoA();
             }
+            // Se modifican los datos de la tablet
             tabletModificar.setMarca(nuevaMarcaT);
             tabletModificar.setTamaño(nuevoTamañoT);
             tabletModificar.setPrecio(nuevoPrecioT);
@@ -648,16 +703,25 @@ public class Metodos {
         }
     }
 
+    // Método para devolver un computador de la lista de computadores
     public LinkedList<COMPUTADOR_PORTATIL> DevolverPc(LinkedList<COMPUTADOR_PORTATIL> listaC) {
+        // Se pide al usuario que ingrese el serial del computador que desea devolver
         String SerialDevolverC = JOptionPane.showInputDialog("Ingrese el serial del computador a devolver: ");
+        // Se inicializa la variable encontrado en false para saber si se encontró el computador
         boolean encontrado = false;
+        // Se recorre la lista de computadores para buscar el computador con el serial ingresado
         Iterator<COMPUTADOR_PORTATIL> iterator = listaC.iterator();
+        // Si se encuentra el computador se elimina de la lista y se muestra un mensaje de éxito
         while (iterator.hasNext()) {
+            // Se obtiene el computador de la lista
             COMPUTADOR_PORTATIL co = iterator.next();
+            // Si el serial del computador es igual al serial ingresado por el usuario se elimina de la lista
             if (co.getSerial().equals(SerialDevolverC)) {
                 iterator.remove();
                 JOptionPane.showMessageDialog(null, "El computador ha sido eliminado de la lista");
+                // Se cambia la variable encontrado a true para indicar que se encontró el computador
                 encontrado = true;
+                // Se decrementa el total de computadores
                 TotalComputadores--;
                 break;
             }
@@ -667,16 +731,25 @@ public class Metodos {
         }
         return listaC;
     }
+    // Método para devolver una tablet de la lista de tablets
     public LinkedList<TABLETA_GRAFICA> DevolverTb(LinkedList<TABLETA_GRAFICA> listaT) {
+        // Se pide al usuario que ingrese el serial de la tablet que desea devolver
         String SerialDevolverT = JOptionPane.showInputDialog("Ingrese el serial del computador a devolver: ");
+        // Se inicializa la variable encontrado en false para saber si se encontró la tablet
         boolean encontrado = false;
+        // Se recorre la lista de tablets para buscar la tablet con el serial ingresado
         Iterator<TABLETA_GRAFICA> iterator = listaT.iterator();
+        // Si se encuentra la tablet se elimina de la lista y se muestra un mensaje de éxito
         while (iterator.hasNext()) {
+            // Se obtiene la tablet de la lista
             TABLETA_GRAFICA ta = iterator.next();
+            // Si el serial de la tablet es igual al serial ingresado por el usuario se elimina de la lista
             if (ta.getSerial().equals(SerialDevolverT)) {
                 iterator.remove();
                 JOptionPane.showMessageDialog(null, "El computador ha sido eliminado de la lista");
+                // Se cambia la variable encontrado a true para indicar que se encontró la tablet
                 encontrado = true;
+                // Se decrementa el total de tablets
                 TotalTablets--;
                 break;
             }
@@ -686,11 +759,16 @@ public class Metodos {
             JOptionPane.showMessageDialog(null, "No se halló el computador");
         }
         return listaT;
-    }public void MostrarInventarioTotal(){
+    }
+
+    // Método para mostrar el inventario total de computadores y tablets
+    public void MostrarInventarioTotal(){
+        // Se calcula el inventario total sumando el total de computadores y el total de tablets
         int InventarioTotal=TotalComputadores+TotalTablets;
         JOptionPane.showMessageDialog(null, "Inventario Total:\n" +
                 "Computadores: " + TotalComputadores + "\n" +
                 "Tablets: " + TotalTablets + "\n" +
+                // Se muestra el inventario total
                 "Inventario total: " + InventarioTotal);
     }
 }

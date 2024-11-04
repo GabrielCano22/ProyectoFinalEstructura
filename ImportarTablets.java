@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import java.io.File;
 
 public class ImportarTablets {
+    // Método para importar la lista de tablets desde un archivo de texto
+    // Retorna una lista de tablets
+    // Si el archivo no existe, lo crea
+    // Lee cada línea del archivo y crea un objeto TABLETA_GRAFICA con los atributos correspondientes
     public LinkedList<TABLETA_GRAFICA> ImportarArchivo() {
         String rutaArchivo = "Computadores.txt";
         LinkedList<TABLETA_GRAFICA> lista = new LinkedList<>();
@@ -19,7 +23,7 @@ public class ImportarTablets {
                 e.printStackTrace();
             }
         }
-
+        // Lee cada línea del archivo y crea un objeto TABLETA_GRAFICA con los atributos correspondientes
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
             TABLETA_GRAFICA obj = null;

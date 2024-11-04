@@ -1,4 +1,4 @@
-public class COMPUTADOR_PORTATIL {
+public class COMPUTADOR_PORTATIL { //Creacion de la clase y declaracion de las variables
     String Nombre;
     String Apellido;
     int Telefono;
@@ -12,10 +12,11 @@ public class COMPUTADOR_PORTATIL {
     Double Tamaño;
     Double Precio;
 
+    //Creacion de un constructor vacio
     public COMPUTADOR_PORTATIL() {
 
     }
-
+    //Creacion de los metodos get y set para cada una de las variables
     public String getNombre() {
         return Nombre;
     }
@@ -111,7 +112,7 @@ public class COMPUTADOR_PORTATIL {
     public void setPrecio(Double precio) {
         Precio = precio;
     }
-
+    //Creacion de un constructor con todas las variables
     public COMPUTADOR_PORTATIL(String nombre, String apellido, int telefono, int cedula, double promedio, int numSeme, String serial, String marca, String sistemaOperativo, String tipoProcesador, Double tamaño, Double precio) {
         Nombre = nombre;
         Apellido = apellido;

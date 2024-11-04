@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 import java.util.LinkedList;
-public class TABLETA_GRAFICA {
+public class TABLETA_GRAFICA { //Creamos la clase TABLETA_GRAFICA con las variables que se van a utilizar
     String Nombre;
     String Apellido;
     int Telefono;
@@ -14,10 +14,12 @@ public class TABLETA_GRAFICA {
     Double Precio;
     Double Peso;
 
+    //Creamos un constructor vacio
     public TABLETA_GRAFICA() {
 
     }
 
+    //Creamos los metodos get y set para cada una de las variables
     public String getNombre() {
         return Nombre;
     }
@@ -114,6 +116,7 @@ public class TABLETA_GRAFICA {
         Marca = marca;
     }
 
+    //Creamos un constructor con todas las variables
     public TABLETA_GRAFICA(String nombre, String apellido, int telefono, int cedula, double promedio, int numSeme, String serial, String marca, String tipoA, Double tamaño, Double precio, Double peso) {
         Nombre = nombre;
         Apellido = apellido;

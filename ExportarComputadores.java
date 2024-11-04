@@ -3,6 +3,10 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 public class ExportarComputadores {
+    // Método para exportar la lista de computadores a un archivo de texto
+    // Recibe como parámetro una lista de computadores
+    // Si la lista está vacía, imprime un mensaje y retorna void (no hace nada)
+    // Si la lista no está vacía, crea un archivo de texto llamado "Computadores.txt"
     public void exportarArchivo(LinkedList<COMPUTADOR_PORTATIL> lista) {
         if (lista.isEmpty()) {
             System.out.println("La lista está vacía, no se puede exportar el archivo");
@@ -10,6 +14,7 @@ public class ExportarComputadores {
         }
         try (FileWriter e = new FileWriter("Computadores.txt")) {
             for (COMPUTADOR_PORTATIL obj : lista) {
+                // Se escribe en el archivo cada uno de los atributos del objeto
                 e.write("Nombre: " + obj.getNombre() + "\n");
                 e.write("Apellido: " + obj.getApellido() + "\n");
                 e.write("Cedula: " + obj.getCedula() + "\n");
@@ -25,6 +30,7 @@ public class ExportarComputadores {
                 e.write("------------------------------------------------------\n");
             }
             System.out.println("Archivo exportado correctamente");
+            // Si ocurre una excepción al escribir en el archivo, se imprime el mensaje de error
         } catch (IOException e) {
             e.printStackTrace();
         }

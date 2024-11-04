@@ -3,6 +3,10 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 public class ExportarTablets {
+    // Método para exportar la lista de tablets a un archivo de texto
+    // Recibe como parámetro una lista de tablets
+    // Si la lista está vacía, imprime un mensaje y retorna void (no hace nada)
+    // Si la lista no está vacía, crea un archivo de texto llamado "Tablets.txt"
     public void exportarArchivo(LinkedList<TABLETA_GRAFICA> lista) {
         if (lista.isEmpty()) {
             System.out.println("La lista está vacía, no se puede exportar el archivo");
@@ -10,6 +14,7 @@ public class ExportarTablets {
         }
         try (FileWriter e = new FileWriter("Tablets.txt")) {
             for (TABLETA_GRAFICA obj : lista) {
+                // Se escribe en el archivo cada uno de los atributos del objeto
                 e.write("Nombre: " + obj.getNombre() + "\n");
                 e.write("Apellido: " + obj.getApellido() + "\n");
                 e.write("Cedula: " + obj.getCedula() + "\n");

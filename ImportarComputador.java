@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import java.io.File;
 
 public class ImportarComputador {
+    // Método para importar la lista de computadores desde un archivo de texto
+    // Retorna una lista de computadores
+    // Si el archivo no existe, lo crea
+    // Lee cada línea del archivo y crea un objeto COMPUTADOR_PORTATIL con los atributos correspondientes
     public LinkedList<COMPUTADOR_PORTATIL> ImportarArchivo() {
         String rutaArchivo = "Computadores.txt";
         LinkedList<COMPUTADOR_PORTATIL> lista = new LinkedList<>();
@@ -19,7 +23,7 @@ public class ImportarComputador {
                 e.printStackTrace();
             }
         }
-
+        // Lee cada línea del archivo y crea un objeto COMPUTADOR_PORTATIL con los atributos correspondientes
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
             COMPUTADOR_PORTATIL obj = null;
